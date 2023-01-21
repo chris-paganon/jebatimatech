@@ -1,0 +1,17 @@
+*.min.css
+*.min.js
+
+/*
+!.gitignore
+wp-content/*
+!wp-content/
+
+wp-content/themes/*
+!wp-content/themes/
+!wp-content/themes/jebatimatech-theme/
+
+wp-content/plugins/*
+!wp-content/plugins/
+
+!wp-content/plugins/jebatimatech/
+wp-content/plugins/jebatimatech/vendor
