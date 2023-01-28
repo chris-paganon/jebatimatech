@@ -12,7 +12,7 @@ Author URI: https://chrispaganon.com/
 add_action( 'plugins_loaded', 'jebatimatech_initialize' );
 
 function jebatimatech_initialize() {
-  define( 'PQ_INCLUDE_DIR', plugin_dir_path( __FILE__ ) . 'includes/' );
+  define( 'JABTI_INCLUDE_DIR', plugin_dir_path( __FILE__ ) . 'includes/' );
 
-  include_once( PQ_INCLUDE_DIR . 'jbati-general.php' );
+  include_once( JABTI_INCLUDE_DIR . 'jbati-general.php' );
 }
