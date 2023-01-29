@@ -11,6 +11,13 @@
 <article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" >
 	<div class="inside-article">
     <h2><?php esc_html_e($args['title'], 'jebatimatech'); ?></h2>
+    <h3>
+      <?php
+      foreach ($args['categories'] as $category) {
+        esc_html_e($category->name, 'jebatimatech'); 
+      }
+      ?>
+    </h3>
     <div class="entry-summary">
       <?php esc_html_e($args['content'], 'jebatimatech'); ?>
     </div>
