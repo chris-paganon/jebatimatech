@@ -8,11 +8,11 @@
 }
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" >
 	<div class="inside-article">
-    <h2><?php the_title(); ?></h2>
+    <h2><?php esc_html_e($args['title'], 'jebatimatech'); ?></h2>
     <div class="entry-summary">
-      <?php the_excerpt(); ?>
+      <?php esc_html_e($args['content'], 'jebatimatech'); ?>
     </div>
   </div>
 </article>
