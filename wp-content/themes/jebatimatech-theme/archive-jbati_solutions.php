@@ -7,7 +7,8 @@
 	exit; // Exit if accessed directly.
 }
 
-get_header(); ?>
+get_header();
+do_action( 'jbati_before_archive' ); ?>
 
 <div class="sidebar is-left-sidebar" id="left-sidebar">
   <div class="inside-left-sidebar">
@@ -24,7 +25,6 @@ get_header(); ?>
         the_post();
         generate_do_template_part( 'jbati_solutions' );
       }
-      print_r(get_posts());
     }
     ?>
   </main>

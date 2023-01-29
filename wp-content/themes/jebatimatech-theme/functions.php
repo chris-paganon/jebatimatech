@@ -2,6 +2,16 @@
 if (!defined('ABSPATH')) exit;
 
 /**
+ * Include php files
+ */
+add_action( 'init', 'jbati_theme_initialie' );
+
+function jbati_theme_initialie() {
+  include_once(  get_stylesheet_directory() . '/includes/jbati-archive-functions.php');
+}
+
+
+/**
  * Enqueue styles
  */
 add_action('wp_enqueue_scripts', 'jbati_theme_enqueue_styles', 10);
