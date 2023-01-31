@@ -8,7 +8,7 @@
 }
 
 ?>
-<article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" >
+<article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" data-solution-id="<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" class="jbati-solution">
 	<div class="inside-article">
     <h2><?php esc_html_e($args['title'], 'jebatimatech'); ?></h2>
     <h3>

@@ -20,7 +20,6 @@ do_action( 'jbati_before_archive', $solutions, $filters );
     <h2>Filters</h2>
     <?php 
     foreach ( $filters as $filter) : 
-      // Need to pass the filter heading to the template
       get_template_part( 'content', 'jbati_filter', $filter );
     endforeach
     ?>

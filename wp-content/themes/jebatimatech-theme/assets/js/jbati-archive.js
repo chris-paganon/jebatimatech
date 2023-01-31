@@ -2,44 +2,50 @@ jQuery(document).ready(function( $ ) {
   console.log('filters:', filters)
   console.log('solutions', solutions)
 
+  /**
+   * Attach callback to each filter item
+   */
   filters.forEach(filter => {
     filter.filter_items.forEach( filter_item => {
-      $(`#filter-${filter.slug} #filter-item-${filter_item.id}`).click( filter_item, () => {
-        // Update active to true OR false
-        filter_item.active = true
-        filterItemClicked(filter_item)
+      $(`#filter-${filter.slug} #filter-item-${filter_item.id}`).click( (event) => {
+        filter_item.active = event.target.checked
+        filterItemClicked(filter)
       })
     })
   })
 
-  function filterItemClicked(filter_item) {
-    // Each solution needs to be checked for every active filter_item instead
-    // const active_filters = getActiveFilters()
+
+  /**
+   * Update the 'active' value of solutions from active filters
+   */
+  function filterItemClicked(filterClicked) {
     solutions = solutions.map( solution => {
-      // active_filters.forEach ...
-      if ( solution.categories.some(c => c.term_id == filter_item.id ) ) {
-        solution.active = false
-      } else {
-        solution.active = true
-      }
+      solution.active = true
+      filters.forEach( filter => {
+        filter.filter_items.forEach( filter_item => {
+          if ( filter_item.active === true && ! solution[filterClicked.slug].some(c => c.term_id == filter_item.id ) ) {
+            solution.active = false
+          }
+        })
+      })
       return solution
     })
-    // update the DOM here
-    // updateSolutions()
+    updateSolutions()
     console.log('filtered solutions', solutions)
-    console.log('active filters', filters)
+    console.log('filters', filters)
   }
 
-  function getActiveFilters() {
-    // To filter solutions easier
-    return active_filters_only
-  }
-
+  
+  /**
+   * Update the DOM to show or hide solutions
+   */
   function updateSolutions() {
-    $('.solution-item').forEach( solution_item => {
-      // get the id
-      // check if active
-      // update css class accordingly
+    solutions.forEach( solution => {
+      if (solution.active) {
+        $(`.jbati-solution[data-solution-id="${solution.id}"]`).show()
+      } else {
+        $(`.jbati-solution[data-solution-id="${solution.id}"]`).hide()
+      }
     })
   }
 })
