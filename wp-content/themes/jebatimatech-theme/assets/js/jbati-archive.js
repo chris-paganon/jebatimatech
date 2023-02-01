@@ -42,9 +42,9 @@ jQuery(document).ready(function( $ ) {
   function updateSolutions() {
     solutions.forEach( solution => {
       if (solution.active) {
-        $(`.jbati-solution[data-solution-id="${solution.id}"]`).show()
+        $(`.jbati-solution[data-solution-id="${solution.id}"]`).addClass('active')
       } else {
-        $(`.jbati-solution[data-solution-id="${solution.id}"]`).hide()
+        $(`.jbati-solution[data-solution-id="${solution.id}"]`).removeClass('active')
       }
     })
   }
