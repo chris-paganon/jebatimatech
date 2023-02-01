@@ -58,12 +58,14 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
     [
       'name' => 'Catégories',
       'slug' => 'categories',
-      'type' => 'taxonomy'
+      'type' => 'taxonomy',
+      'filter_items' => []
     ],
     [
       'name' => 'Fonction principale',
       'slug' => 'fonction_principale',
-      'type' => 'string'
+      'type' => 'string',
+      'filter_items' => []
     ]
   ];
   
