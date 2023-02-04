@@ -40,7 +40,8 @@ function jbati_get_all_solutions_data($solutions_query) {
       'active' => true,
       'title' => $solution_post->post_title,
       'content' => $solution_post->post_content,
-      'categories' => get_field('categories', $solution_post->ID)
+      'taxonomy_names' => get_object_taxonomies($solution_post),
+      'acf_fields' => get_fields($solution_post->ID)
     ];
   }
   error_log(print_r($solutions, true));
@@ -54,45 +55,58 @@ function jbati_get_all_solutions_data($solutions_query) {
 add_filter( 'jbati_filters_array', 'jbati_get_all_filters_data', 10, 2 );
 
 function jbati_get_all_filters_data( $filters, $solutions ) {
-  $filters_needed = [
+  $filters = [
+    // [
+    //   'name' => 'Catégorie de technologie',
+    //   'slug' => 'categorie_technologie',
+    //   'type' => 'acf',
+    //   'filter_items' => []
+    // ],
     [
-      'name' => 'Catégories',
-      'slug' => 'categories',
+      'name' => 'Thèmes',
+      'slug' => 'themes',
       'type' => 'taxonomy',
       'filter_items' => []
     ],
     [
-      'name' => 'Fonction principale',
-      'slug' => 'fonction_principale',
-      'type' => 'string',
+      'name' => 'Envergure de projets',
+      'slug' => 'envergure_de_projets',
+      'type' => 'taxonomy',
       'filter_items' => []
     ]
   ];
   
-  // Hardcoded one filter for now. Need to use a static array (see above) as an input to choose what filters we need
-  $filters[] = [
-    'name' => 'Catégories',
-    'slug' => 'categories',
-    'type' => 'taxonomy',
-    'filter_items' => []
-  ];
-  foreach ( $solutions as $solution ) {
-    foreach ( $solution['categories'] as $category ) {
-      $filter_category_exists = false;
-      foreach ( $filters[0]['filter_items'] as $filter_item ) {
-        if ( $filter_item && $filter_item['id'] == $category->term_id ) {
-          $filter_category_exists = true;
-        }
-      }
-      if ( ! $filter_category_exists ) {
-        $filters[0]['filter_items'][] = [
-          'id' => $category->term_id,
-          'name' => $category->name,
-          'slug' => $category->slug,
-          'active' => false
-        ];
-      }
+  foreach ( $filters as $filter_key => $filter ) {
+    switch ($filter['type']) {
+      // case 'acf':
+      //   $filters[$filter_key]['filter_items'] = jbati_get_acf_filter_items($filter['slug'], $solutions);
+      //   break;
+      case 'taxonomy':
+        $filters[$filter_key]['filter_items'] = jbati_get_taxonomy_filter_items($filter['slug'], $solutions);
+        break;
     }
   }
   return $filters;
+}
+
+function jbati_get_taxonomy_filter_items($filter_slug, $solutions) {
+  $filter_items = array();
+  foreach ($solutions as $solution) {
+    foreach ($solution['taxonomy_names'] as $taxonomy_name) {
+      if ($taxonomy_name == $filter_slug) {
+        $terms = get_the_terms( $solution['id'], $taxonomy_name );
+        foreach ( $terms as $term ) {
+          if ( !in_array($term->term_id, array_column($filter_items, 'id')) ) {
+            $filter_items[] = [
+              'id' => $term->term_id,
+              'name' => $term->name,
+              'slug' => $term->slug,
+              'active' => false
+            ];
+          }
+        }
+      }
+    }
+  }
+  return $filter_items;
 }
