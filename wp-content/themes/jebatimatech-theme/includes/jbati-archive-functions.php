@@ -72,6 +72,7 @@ function jbati_get_taxonomies_array($solution_post) {
 function jbati_get_terms_array($solution_post, $taxonomy) {
   $terms_array = array();
   $terms = get_the_terms( $solution_post->ID, $taxonomy->name );
+  if (empty($terms)) return $terms_array;
   foreach ($terms as $term) {
     $terms_array[] = array(
       'label' => $term->name,
