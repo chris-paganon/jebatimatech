@@ -9,7 +9,7 @@ jQuery(document).ready(function( $ ) {
     filter.filter_items.forEach( filter_item => {
       $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).click( (event) => {
         filter_item.active = event.target.checked
-        filterItemClicked(filter)
+        filterItemClicked()
       })
     })
   })
@@ -18,19 +18,13 @@ jQuery(document).ready(function( $ ) {
   /**
    * Update the 'active' value of solutions from active filters
    */
-  function filterItemClicked(filterClicked) {
+  function filterItemClicked() {
     solutions = solutions.map( solution => {
       solution.active = true
       filters.forEach( filter => {
         filter.filter_items.forEach( filter_item => {
-          if ( 
-            filter_item.active === true
-            && ! solution.properties.find(
-                property => property.slug == filterClicked.slug
-              ).values.some(
-                value => value.slug == filter_item.slug 
-              )
-            ) {
+          const matching_property = solution.properties.find( property => property.slug == filter.slug )
+          if ( filter_item.active === true && matching_property && ! matching_property.values.some(value => value.slug == filter_item.slug) ) {
             solution.active = false
           }
         })
