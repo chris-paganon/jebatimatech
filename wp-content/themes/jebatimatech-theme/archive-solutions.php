@@ -15,9 +15,9 @@ $filters = apply_filters( 'jbati_filters_array', array(), $solutions );
 do_action( 'jbati_before_archive', $solutions, $filters );
 ?>
 
-<div class="sidebar is-left-sidebar" id="left-sidebar">
+<div class="jbati-solutions-archive-sidebar sidebar is-left-sidebar" id="left-sidebar">
   <div class="inside-left-sidebar">
-    <h2>Filters</h2>
+    <h2>Filtres</h2>
     <?php 
     foreach ( $filters as $filter) : 
       get_template_part( 'content', 'jbati_filter', $filter );
@@ -26,7 +26,7 @@ do_action( 'jbati_before_archive', $solutions, $filters );
   </div>
 </div>
 
-<div class="content-area" id="primary">
+<div class="jbati-solutions-archive-content content-area" id="primary">
   <main class="site-main" id="main">
     <h1>Solutions</h1>
     <?php 

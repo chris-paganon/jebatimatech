@@ -8,9 +8,13 @@ div.site div.sidebar {
   align-items: center;
   border-right: solid 1px #e5e5e5;
   text-align: center;
+  width: 33%;
 }
 
 /* Archive Solutions */
+.jbati-solutions-archive-content h1 {
+  text-align: center;
+}
 .jbati-solution {
   position: relative;
   background-color: transparent;
@@ -41,14 +45,15 @@ div.site div.sidebar {
 .filter {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 20px;
 }
 .filter-item-wrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  text-align: center;
+  text-align: left;
 }
 .filter-item-wrapper .checkbox {
 margin: 0px 10px;
