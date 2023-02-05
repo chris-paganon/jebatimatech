@@ -23,8 +23,25 @@ jQuery(document).ready(function( $ ) {
       solution.active = true
       filters.forEach( filter => {
         filter.filter_items.forEach( filter_item => {
-          if ( filter_item.active === true && ! solution[filterClicked.slug].some(c => c.term_id == filter_item.id ) ) {
-            solution.active = false
+          // Identify taxonomy filter vs acf filter & check accordingly
+          switch (filter.type) {
+            case 'taxonomy':
+              if ( 
+                filter_item.active === true
+                && ! solution.taxonomies.find(
+                    taxonomy => taxonomy.name == filterClicked.slug
+                  ).terms.some(
+                    term => term.id == filter_item.id 
+                  )
+                ) {
+                solution.active = false
+              }
+              break;
+            // case 'acf':
+            //   if ( filter_item.active === true && ! solution[filterClicked.slug].includes(filter_item.id) ) {
+            //     solution.active = false
+            //   }
+            //   break;
           }
         })
       })

@@ -35,13 +35,31 @@ add_filter( 'jbati_solutions_array', 'jbati_get_all_solutions_data', 10, 1 );
 function jbati_get_all_solutions_data($solutions_query) {
   $solutions = array();
   foreach ( $solutions_query as $key => $solution_post ) {
+    $taxonomies_array = array();
+    $taxonomies = get_object_taxonomies($solution_post, 'objects');
+    foreach ($taxonomies as $taxonomy) {
+      $terms = get_the_terms( $solution_post->ID, $taxonomy->name );
+      $terms_array = array();
+      foreach ($terms as $term) {
+        $terms_array[] = array(
+          'id' => $term->term_id,
+          'name' => $term->name,
+          'slug' => $term->slug
+        );
+      }
+      $taxonomies_array[] = array(
+        'name' => $taxonomy->name,
+        'label' => $taxonomy->label,
+        'terms' => $terms_array
+      );
+    }
     $solutions[$key] = [
       'id' => $solution_post->ID,
       'active' => true,
       'title' => $solution_post->post_title,
       'content' => $solution_post->post_content,
-      'taxonomy_names' => get_object_taxonomies($solution_post),
-      'acf_fields' => get_fields($solution_post->ID)
+      'acf_fields' => get_fields($solution_post->ID),
+      'taxonomies' => $taxonomies_array
     ];
   }
   error_log(print_r($solutions, true));
@@ -92,15 +110,15 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
 function jbati_get_taxonomy_filter_items($filter_slug, $solutions) {
   $filter_items = array();
   foreach ($solutions as $solution) {
-    foreach ($solution['taxonomy_names'] as $taxonomy_name) {
-      if ($taxonomy_name == $filter_slug) {
-        $terms = get_the_terms( $solution['id'], $taxonomy_name );
+    foreach ($solution['taxonomies'] as $taxonomy) {
+      if ($taxonomy['name'] == $filter_slug) {
+        $terms = $taxonomy['terms'];
         foreach ( $terms as $term ) {
-          if ( !in_array($term->term_id, array_column($filter_items, 'id')) ) {
+          if ( !in_array($term['id'], array_column($filter_items, 'id')) ) {
             $filter_items[] = [
-              'id' => $term->term_id,
-              'name' => $term->name,
-              'slug' => $term->slug,
+              'id' => $term['id'],
+              'name' => $term['name'],
+              'slug' => $term['slug'],
               'active' => false
             ];
           }
