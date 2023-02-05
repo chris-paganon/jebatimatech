@@ -7,11 +7,18 @@
 	exit; // Exit if accessed directly.
 }
 
+$categorie_technologie_value = '';
+foreach ($args['acf_fields'] as $acf_field) {
+  if ($acf_field['name'] == 'categorie_technologie') {
+    $categorie_technologie_value = $acf_field['value'];
+  }
+}
 ?>
+
 <article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" data-solution-id="<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" class="jbati-solution active">
 	<div class="inside-article">
     <h2><?php esc_html_e($args['title'], 'jebatimatech'); ?></h2>
-    <h3><?php esc_html_e($args['acf_fields']['categorie_technologie'], 'jebatimatech'); ?></h3>
+    <h3><?php esc_html_e($categorie_technologie_value, 'jebatimatech'); ?></h3>
     <div class="entry-summary">
       <?php esc_html_e($args['content'], 'jebatimatech'); ?>
     </div>
