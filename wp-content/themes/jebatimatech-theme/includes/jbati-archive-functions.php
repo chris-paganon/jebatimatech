@@ -56,7 +56,7 @@ function jbati_get_taxonomies_array($solution_post) {
   foreach ($taxonomies as $taxonomy) {
     $terms_array = jbati_get_terms_array($solution_post, $taxonomy);
     $taxonomies_array[] = array(
-      'name' => $taxonomy->name,
+      'slug' => $taxonomy->name,
       'label' => $taxonomy->label,
       'terms' => $terms_array
     );
@@ -70,7 +70,7 @@ function jbati_get_terms_array($solution_post, $taxonomy) {
   foreach ($terms as $term) {
     $terms_array[] = array(
       'id' => $term->term_id,
-      'name' => $term->name,
+      'label' => $term->name,
       'slug' => $term->slug
     );
   }
@@ -84,9 +84,12 @@ function jbati_get_acf_fields_array ($solution_post) {
   foreach ($acf_fields as $acf_field) {
     $acf_fields_array[] = array(
       'id' => $acf_field['ID'],
-      'name' => $acf_field['name'],
+      'slug' => $acf_field['name'],
       'label' => $acf_field['label'],
-      'value' => $acf_field['value']
+      'value' => [
+        'label' => $acf_field['value'],
+        'slug' => sanitize_title($acf_field['value'])
+      ]
     );
   }
   return $acf_fields_array;
@@ -101,19 +104,19 @@ add_filter( 'jbati_filters_array', 'jbati_get_all_filters_data', 10, 2 );
 function jbati_get_all_filters_data( $filters, $solutions ) {
   $filters = [
     [
-      'name' => 'Catégorie de technologie',
+      'label' => 'Catégorie de technologie',
       'slug' => 'categorie_technologie',
       'type' => 'acf',
       'filter_items' => []
     ],
     [
-      'name' => 'Thèmes',
+      'label' => 'Thèmes',
       'slug' => 'themes',
       'type' => 'taxonomy',
       'filter_items' => []
     ],
     [
-      'name' => 'Envergure de projets',
+      'label' => 'Envergure de projets',
       'slug' => 'envergure_de_projets',
       'type' => 'taxonomy',
       'filter_items' => []
@@ -138,13 +141,13 @@ function jbati_get_taxonomy_filter_items($filter_slug, $solutions) {
   $filter_items = array();
   foreach ($solutions as $solution) {
     foreach ($solution['taxonomies'] as $taxonomy) {
-      if ($taxonomy['name'] == $filter_slug) {
+      if ($taxonomy['slug'] == $filter_slug) {
         $terms = $taxonomy['terms'];
         foreach ( $terms as $term ) {
           if ( !in_array($term['id'], array_column($filter_items, 'id')) ) {
             $filter_items[] = [
               'id' => $term['id'],
-              'name' => $term['name'],
+              'label' => $term['label'],
               'slug' => $term['slug'],
               'active' => false
             ];
@@ -161,9 +164,13 @@ function jbati_get_acf_filter_items($filter_slug, $solutions) {
   foreach ($solutions as $solution) {
     $acf_fields = $solution['acf_fields'];
     foreach ($acf_fields as $acf_field) {
-      if ($acf_field['name'] == $filter_slug) {
-        if ( !in_array($acf_field['value'], $filter_items) ) {
-          $filter_items[] = $acf_field['value'];
+      if ($acf_field['slug'] == $filter_slug) {
+        if ( !in_array($acf_field['value']['slug'], array_column($filter_items, 'slug')) ) {
+          $filter_items[] = [
+            'label' => $acf_field['value']['label'],
+            'slug' => $acf_field['value']['slug'],
+            'active' => false
+          ];;
         }
       }
     }

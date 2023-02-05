@@ -9,8 +9,8 @@
 
 $categorie_technologie_value = '';
 foreach ($args['acf_fields'] as $acf_field) {
-  if ($acf_field['name'] == 'categorie_technologie') {
-    $categorie_technologie_value = $acf_field['value'];
+  if ($acf_field['slug'] == 'categorie_technologie') {
+    $categorie_technologie_value = $acf_field['value']['label'];
   }
 }
 ?>
