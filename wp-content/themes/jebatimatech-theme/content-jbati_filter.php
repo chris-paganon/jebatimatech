@@ -6,8 +6,20 @@ if (!defined('ABSPATH')) exit;
   <h3><?php esc_html_e($args['name'], 'jebatimatech'); ?></h3>
   <?php foreach ($args['filter_items'] as $filter_item) : ?>
     <div class="filter-item-wrapper">
-      <input type="checkbox" class="checkbox" id="filter-item-<?php esc_attr_e($filter_item['id'], 'jebatimatech'); ?>" value="<?php esc_attr_e($filter_item['id'], 'jebatimatech'); ?>">
-      <label class="label" for="filter-item-<?php esc_attr_e($filter_item['id'], 'jebatimatech'); ?>"><?php esc_html_e($filter_item['name'], 'jebatimatech'); ?></label>
+      <?php 
+      switch ($args['type']) {
+        case 'taxonomy':
+          $input_id = "filter-item-" . $filter_item['id'];
+          $filter_name = $filter_item['name'];
+          break;
+        case 'acf':
+          $input_id = "filter-item-$filter_item";
+          $filter_name = $filter_item;
+          break;
+      }
+      ?>
+      <input type="checkbox" class="checkbox" id="<?php echo esc_attr($input_id); ?>" value="<?php echo esc_attr($input_id); ?>">
+      <label class="label" for="<?php echo esc_attr($input_id); ?>"><?php esc_html_e($filter_name, 'jebatimatech'); ?></label>
     </div>
   <?php endforeach ?>
 </div>
