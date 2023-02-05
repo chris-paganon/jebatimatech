@@ -37,13 +37,13 @@ function jbati_get_all_solutions_data($solutions_query) {
   foreach ( $solutions_query as $key => $solution_post ) {
     $taxonomies_array = jbati_get_taxonomies_array($solution_post);
     $acf_fields_array = jbati_get_acf_fields_array($solution_post);
+    $properties = array_merge($taxonomies_array, $acf_fields_array);
     $solutions[$key] = [
       'id' => $solution_post->ID,
       'active' => true,
       'title' => $solution_post->post_title,
       'content' => $solution_post->post_content,
-      'acf_fields' => $acf_fields_array,
-      'taxonomies' => $taxonomies_array
+      'properties' => $properties
     ];
   }
   error_log(print_r($solutions, true));
@@ -58,7 +58,7 @@ function jbati_get_taxonomies_array($solution_post) {
     $taxonomies_array[] = array(
       'slug' => $taxonomy->name,
       'label' => $taxonomy->label,
-      'terms' => $terms_array
+      'values' => $terms_array
     );
   }
   return $taxonomies_array;
@@ -69,7 +69,6 @@ function jbati_get_terms_array($solution_post, $taxonomy) {
   $terms = get_the_terms( $solution_post->ID, $taxonomy->name );
   foreach ($terms as $term) {
     $terms_array[] = array(
-      'id' => $term->term_id,
       'label' => $term->name,
       'slug' => $term->slug
     );
@@ -80,16 +79,14 @@ function jbati_get_terms_array($solution_post, $taxonomy) {
 function jbati_get_acf_fields_array ($solution_post) {
   $acf_fields_array = array();
   $acf_fields = get_field_objects($solution_post->ID);
-  error_log(print_r($acf_fields, true));
   foreach ($acf_fields as $acf_field) {
     $acf_fields_array[] = array(
-      'id' => $acf_field['ID'],
       'slug' => $acf_field['name'],
       'label' => $acf_field['label'],
-      'value' => [
+      'values' => [[
         'label' => $acf_field['value'],
         'slug' => sanitize_title($acf_field['value'])
-      ]
+      ]]
     );
   }
   return $acf_fields_array;
@@ -124,53 +121,25 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
   ];
   
   foreach ( $filters as $filter_key => $filter ) {
-    switch ($filter['type']) {
-      case 'acf':
-        $filters[$filter_key]['filter_items'] = jbati_get_acf_filter_items($filter['slug'], $solutions);
-        break;
-      case 'taxonomy':
-        $filters[$filter_key]['filter_items'] = jbati_get_taxonomy_filter_items($filter['slug'], $solutions);
-        break;
-    }
+    $filters[$filter_key]['filter_items'] = jbati_get_filter_items($filter['slug'], $solutions);
   }
   error_log(print_r($filters, true));
   return $filters;
 }
 
-function jbati_get_taxonomy_filter_items($filter_slug, $solutions) {
+function jbati_get_filter_items($filter_slug, $solutions) {
   $filter_items = array();
   foreach ($solutions as $solution) {
-    foreach ($solution['taxonomies'] as $taxonomy) {
-      if ($taxonomy['slug'] == $filter_slug) {
-        $terms = $taxonomy['terms'];
-        foreach ( $terms as $term ) {
-          if ( !in_array($term['id'], array_column($filter_items, 'id')) ) {
+    foreach ($solution['properties'] as $property) {
+      if ($property['slug'] == $filter_slug) {
+        foreach ( $property['values'] as $value ) {
+          if ( !in_array($value['slug'], array_column($filter_items, 'slug')) ) {
             $filter_items[] = [
-              'id' => $term['id'],
-              'label' => $term['label'],
-              'slug' => $term['slug'],
+              'label' => $value['label'],
+              'slug' => $value['slug'],
               'active' => false
             ];
           }
-        }
-      }
-    }
-  }
-  return $filter_items;
-}
-
-function jbati_get_acf_filter_items($filter_slug, $solutions) {
-  $filter_items = array();
-  foreach ($solutions as $solution) {
-    $acf_fields = $solution['acf_fields'];
-    foreach ($acf_fields as $acf_field) {
-      if ($acf_field['slug'] == $filter_slug) {
-        if ( !in_array($acf_field['value']['slug'], array_column($filter_items, 'slug')) ) {
-          $filter_items[] = [
-            'label' => $acf_field['value']['label'],
-            'slug' => $acf_field['value']['slug'],
-            'active' => false
-          ];;
         }
       }
     }

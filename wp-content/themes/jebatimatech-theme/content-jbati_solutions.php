@@ -8,9 +8,9 @@
 }
 
 $categorie_technologie_value = '';
-foreach ($args['acf_fields'] as $acf_field) {
-  if ($acf_field['slug'] == 'categorie_technologie') {
-    $categorie_technologie_value = $acf_field['value']['label'];
+foreach ($args['properties'] as $property) {
+  if ($property['slug'] == 'categorie_technologie') {
+    $categorie_technologie_value = $property['values'][0]['label'];
   }
 }
 ?>

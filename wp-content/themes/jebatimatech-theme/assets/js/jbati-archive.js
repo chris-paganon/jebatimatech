@@ -7,7 +7,7 @@ jQuery(document).ready(function( $ ) {
    */
   filters.forEach(filter => {
     filter.filter_items.forEach( filter_item => {
-      $(`#filter-${filter.slug} #filter-item-${filter_item.id}`).click( (event) => {
+      $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).click( (event) => {
         filter_item.active = event.target.checked
         filterItemClicked(filter)
       })
@@ -23,33 +23,21 @@ jQuery(document).ready(function( $ ) {
       solution.active = true
       filters.forEach( filter => {
         filter.filter_items.forEach( filter_item => {
-          // Identify taxonomy filter vs acf filter & check accordingly
-          switch (filter.type) {
-            case 'taxonomy':
-              if ( 
-                filter_item.active === true
-                && ! solution.taxonomies.find(
-                    taxonomy => taxonomy.name == filterClicked.slug
-                  ).terms.some(
-                    term => term.id == filter_item.id 
-                  )
-                ) {
-                solution.active = false
-              }
-              break;
-            // case 'acf':
-            //   if ( filter_item.active === true && ! solution[filterClicked.slug].includes(filter_item.id) ) {
-            //     solution.active = false
-            //   }
-            //   break;
+          if ( 
+            filter_item.active === true
+            && ! solution.properties.find(
+                property => property.slug == filterClicked.slug
+              ).values.some(
+                value => value.slug == filter_item.slug 
+              )
+            ) {
+            solution.active = false
           }
         })
       })
       return solution
     })
     updateSolutions()
-    console.log('filtered solutions', solutions)
-    console.log('filters', filters)
   }
 
   
@@ -66,11 +54,3 @@ jQuery(document).ready(function( $ ) {
     })
   }
 })
-
-
-
-// Loop through each filter
-// Attach callback to each filter item
-// Update the 'active' value of filter_items
-// Update the 'active' value of solutions from active filters
-// Hide & show solutions in the DOM according to the solutions array
