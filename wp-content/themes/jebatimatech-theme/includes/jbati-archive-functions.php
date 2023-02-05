@@ -46,10 +46,12 @@ function jbati_get_all_solutions_data($solutions_query) {
       'properties' => $properties
     ];
   }
-  error_log(print_r($solutions, true));
   return $solutions;
 }
 
+/**
+ * Get taxonomies in the unified array schema format
+ */
 function jbati_get_taxonomies_array($solution_post) {
   $taxonomies_array = array();
   $taxonomies = get_object_taxonomies($solution_post, 'objects');
@@ -64,6 +66,9 @@ function jbati_get_taxonomies_array($solution_post) {
   return $taxonomies_array;
 }
 
+/**
+ * Get taxonomy terms in the unified array schema format
+ */
 function jbati_get_terms_array($solution_post, $taxonomy) {
   $terms_array = array();
   $terms = get_the_terms( $solution_post->ID, $taxonomy->name );
@@ -76,6 +81,9 @@ function jbati_get_terms_array($solution_post, $taxonomy) {
   return $terms_array;
 }
 
+/**
+ * Get acf_fields in the unified array schema format
+ */
 function jbati_get_acf_fields_array ($solution_post) {
   $acf_fields_array = array();
   $acf_fields = get_field_objects($solution_post->ID);
@@ -123,10 +131,12 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
   foreach ( $filters as $filter_key => $filter ) {
     $filters[$filter_key]['filter_items'] = jbati_get_filter_items($filter['slug'], $solutions);
   }
-  error_log(print_r($filters, true));
   return $filters;
 }
 
+/**
+ * Get an array of all the filter items available from the solutions
+ */
 function jbati_get_filter_items($filter_slug, $solutions) {
   $filter_items = array();
   foreach ($solutions as $solution) {

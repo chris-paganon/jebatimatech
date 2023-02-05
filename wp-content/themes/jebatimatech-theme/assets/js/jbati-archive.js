@@ -14,7 +14,6 @@ jQuery(document).ready(function( $ ) {
     })
   })
 
-
   /**
    * Update the 'active' value of solutions from active filters
    */
@@ -33,7 +32,6 @@ jQuery(document).ready(function( $ ) {
     })
     updateSolutions()
   }
-
   
   /**
    * Update the DOM to show or hide solutions
