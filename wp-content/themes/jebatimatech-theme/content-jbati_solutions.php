@@ -15,12 +15,14 @@ foreach ($args['properties'] as $property) {
 }
 ?>
 
-<article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" data-solution-id="<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" class="jbati-solution active">
-	<div class="inside-article">
-    <h3><?php esc_html_e($args['title'], 'jebatimatech'); ?></h3>
-    <h4><?php esc_html_e($categorie_technologie_value, 'jebatimatech'); ?></h4>
-    <div class="entry-summary">
-      <?php esc_html_e($args['content'], 'jebatimatech'); ?>
+<a href="<?php echo esc_attr($args['link']) ?>" class="jbati-link-wrapper">
+  <article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" data-solution-id="<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" class="jbati-solution active">
+    <div class="inside-article">
+      <h3><?php esc_html_e($args['title'], 'jebatimatech'); ?></h3>
+      <h4><?php esc_html_e($categorie_technologie_value, 'jebatimatech'); ?></h4>
+      <div class="entry-summary">
+        <?php esc_html_e($args['content'], 'jebatimatech'); ?>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
+</a>

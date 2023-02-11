@@ -43,6 +43,7 @@ function jbati_get_all_solutions_data($solutions_query) {
       'active' => true,
       'title' => $solution_post->post_title,
       'content' => $solution_post->post_content,
+      'link' => get_permalink($solution_post->ID),
       'properties' => $properties
     ];
   }
