@@ -1,6 +1,11 @@
 /* Main */
 div.site div.site-content {
   padding: 100px;
+  display: block;
+}
+.jabti-solutions-archive-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 div.site div.sidebar {
   display: flex;
@@ -8,11 +13,11 @@ div.site div.sidebar {
   align-items: center;
   border-right: solid 1px #e5e5e5;
   text-align: center;
-  width: 33%;
+  width: 100%;
 }
 
 /* Archive Solutions */
-.jbati-solutions-archive-content h1 {
+.jbati-solutions-archive-content h2 {
   text-align: center;
 }
 .jbati-solution {

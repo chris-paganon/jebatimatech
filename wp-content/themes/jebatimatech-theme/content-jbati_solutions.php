@@ -17,8 +17,8 @@ foreach ($args['properties'] as $property) {
 
 <article id="post-<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" data-solution-id="<?php esc_attr_e($args['id'], 'jebatimatech'); ?>" class="jbati-solution active">
 	<div class="inside-article">
-    <h2><?php esc_html_e($args['title'], 'jebatimatech'); ?></h2>
-    <h3><?php esc_html_e($categorie_technologie_value, 'jebatimatech'); ?></h3>
+    <h3><?php esc_html_e($args['title'], 'jebatimatech'); ?></h3>
+    <h4><?php esc_html_e($categorie_technologie_value, 'jebatimatech'); ?></h4>
     <div class="entry-summary">
       <?php esc_html_e($args['content'], 'jebatimatech'); ?>
     </div>
