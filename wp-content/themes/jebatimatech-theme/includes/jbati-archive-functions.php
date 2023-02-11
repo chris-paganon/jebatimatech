@@ -179,17 +179,43 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
  */
 function jbati_get_filter_items($filter, $solutions) {
   $filter_items = array();
+
+  // Get all taxonomy filter items in the right order
+  if ($filter['type'] === 'taxonomy') {
+    $terms = get_terms( array(
+      'taxonomy' => $filter['slug'],
+      'hide_empty' => true,
+    ) );
+    foreach ($terms as $term) {
+      $filter_items[] = [
+        'label' => $term->name,
+        'slug' => $term->slug,
+        'show' => false,
+        'active' => false
+      ];
+    }
+  }
+
+  // Get ACF filter items & only show relevant taxonomy filter items
   foreach ($solutions as $solution) {
     foreach ($solution['properties'] as $property) {
       if ($property['slug'] == $filter['slug']) {
         foreach ( $property['values'] as $value ) {
           if ( !in_array($value['slug'], array_column($filter_items, 'slug')) ) {
+            //Add missing filter items (for ACF)
             $filter_items[] = [
               'label' => $value['label'],
               'slug' => $value['slug'],
-              'show_title' => $filter['show_title'],
+              'show' => true,
               'active' => false
             ];
+          } else {
+            // Show taxonomy filter items that are relevant to the solutions
+            foreach ($filter_items as $filter_item_key => $filter_item) {
+              if ($filter_item['slug'] == $value['slug']) {
+                $filter_items[$filter_item_key]['show'] = true;
+              }
+            }
           }
         }
       }
