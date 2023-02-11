@@ -113,54 +113,62 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'label' => 'Catégorie de technologie',
       'slug' => 'categorie_technologie',
       'type' => 'acf',
+      'show_title' => false,
       'filter_items' => []
     ],
     [
       'label' => 'Accessibilité : Langue de travail (interface)',
       'slug' => 'langue_de_travail',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
     [
       'label' => 'Catégorie de Clientèle',
       'slug' => 'categorie_de_clientele',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
     [
       'label' => 'Envergure Clientèle Visée',
       'slug' => 'envergure_clientele_visee',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
     [
       'label' => 'Disciplines Construction',
       'slug' => 'disciplines_construction',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
     [
       'label' => 'Phases de projet',
       'slug' => 'phases_de_projet',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
     [
       'label' => 'Catégorie de projet / Modèle de projet',
       'slug' => 'categorie_de_projet',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
     [
       'label' => 'Pour département',
       'slug' => 'pour_departement',
       'type' => 'taxonomy',
+      'show_title' => true,
       'filter_items' => []
     ],
   ];
   
   foreach ( $filters as $filter_key => $filter ) {
-    $filters[$filter_key]['filter_items'] = jbati_get_filter_items($filter['slug'], $solutions);
+    $filters[$filter_key]['filter_items'] = jbati_get_filter_items($filter, $solutions);
   }
   return $filters;
 }
@@ -168,16 +176,17 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
 /**
  * Get an array of all the filter items available from the solutions
  */
-function jbati_get_filter_items($filter_slug, $solutions) {
+function jbati_get_filter_items($filter, $solutions) {
   $filter_items = array();
   foreach ($solutions as $solution) {
     foreach ($solution['properties'] as $property) {
-      if ($property['slug'] == $filter_slug) {
+      if ($property['slug'] == $filter['slug']) {
         foreach ( $property['values'] as $value ) {
           if ( !in_array($value['slug'], array_column($filter_items, 'slug')) ) {
             $filter_items[] = [
               'label' => $value['label'],
               'slug' => $value['slug'],
+              'show_title' => $filter['show_title'],
               'active' => false
             ];
           }
