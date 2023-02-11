@@ -45,4 +45,12 @@ jQuery(document).ready(function( $ ) {
       }
     })
   }
+
+  /**
+   * Accordeon for filters
+   */
+  $('.jbati-accordion-button').click( (event) => {
+    console.log(event.target);
+    $(event.target).siblings('.jbati-accordion-content').toggleClass('active')
+  })
 })

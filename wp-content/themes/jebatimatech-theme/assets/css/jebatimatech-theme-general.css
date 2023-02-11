@@ -49,6 +49,7 @@ div.site div.sidebar {
   text-align: left;
   margin-bottom: 20px;
 }
+
 .filter-item-wrapper {
   width: 100%;
   display: flex;
@@ -60,6 +61,32 @@ margin: 0px 10px;
 }
 .filter-item-wrapper .label {
   width: 100%;
+}
+
+/* Accordeon */
+.jbati-accordion-button {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+}
+.jbati-accordion-button::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  transform: rotate(45deg);
+  margin-left: 10px;
+}
+.jbati-accordion-content {
+  display: none;
+}
+.jbati-accordion-content.active {
+  display: block;
 }
 
 /* Solution box */
