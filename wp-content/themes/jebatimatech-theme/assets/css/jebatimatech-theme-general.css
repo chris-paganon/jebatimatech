@@ -11,8 +11,6 @@ div.site div.sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: solid 1px #e5e5e5;
-  text-align: center;
   width: 100%;
 }
 
@@ -83,8 +81,14 @@ div.site div.sidebar {
   align-items: flex-start;
   text-align: left;
   margin-bottom: 20px;
+  border-bottom: 1px solid var(--contrast-3);
 }
-
+.filter-title {
+  font-size: 1.1rem;
+}
+.filter-items-wrapper {
+  margin-bottom: 20px;
+}
 .filter-item-wrapper {
   width: 100%;
   display: flex;
