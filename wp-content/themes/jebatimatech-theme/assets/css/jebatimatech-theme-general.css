@@ -17,9 +17,10 @@ div.site div.sidebar {
 }
 
 /* Archive Solutions */
-.jbati-link-wrapper {
-  text-decoration: none;
-  color: black;
+.solution-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .jbati-solutions-archive-content h2 {
   text-align: center;
@@ -28,6 +29,7 @@ div.site div.sidebar {
   position: relative;
   background-color: transparent;
   margin: 40px 40px;
+  cursor: pointer;
 }
 .jbati-solution::after {
   content: "";

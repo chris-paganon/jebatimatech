@@ -53,4 +53,14 @@ jQuery(document).ready(function( $ ) {
     console.log(event.target);
     $(event.target).siblings('.jbati-accordion-content').toggleClass('active')
   })
+
+  /**
+   * Solution link
+   */
+  $('.jbati-solution').click( (event) => {
+    if ( $(event.target).is('a') ) return
+    const solution_id = $(event.currentTarget).attr('data-solution-id')
+    const solution = solutions.find( solution => solution.id == solution_id )
+    window.location = solution.link
+  })
 })
