@@ -23,7 +23,7 @@ do_action( 'jbati_before_archive', $solutions, $filters );
 <main class="site-main jabti-solutions-archive-grid" id="main">
   <div class="jbati-solutions-archive-sidebar sidebar is-left-sidebar" id="left-sidebar">
     <div class="inside-left-sidebar">
-      <h2>Filtres</h2>
+      <h2 class="filters-title">Filtrer par:</h2>
       <?php 
       foreach ( $filters as $filter) : 
         get_template_part( 'content', 'jbati_filter', $filter );
@@ -33,7 +33,6 @@ do_action( 'jbati_before_archive', $solutions, $filters );
   </div>
 
   <div class="jbati-solutions-archive-content content-area" id="primary">
-      <h2>Solutions</h2>
       <?php 
       foreach ( $solutions as $solution) : 
         get_template_part( 'content', 'jbati_solutions', $solution );
