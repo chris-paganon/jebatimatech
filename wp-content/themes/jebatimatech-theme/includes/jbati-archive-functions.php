@@ -116,8 +116,8 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
-      'label' => 'Thèmes',
-      'slug' => 'themes',
+      'label' => 'Accessibilité : Langue de travail (interface)',
+      'slug' => 'langue_de_travail',
       'type' => 'taxonomy',
       'filter_items' => []
     ],
@@ -134,8 +134,14 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
-      'label' => 'Pour département',
-      'slug' => 'pour_departement',
+      'label' => 'Disciplines Construction',
+      'slug' => 'disciplines_construction',
+      'type' => 'taxonomy',
+      'filter_items' => []
+    ],
+    [
+      'label' => 'Phases de projet',
+      'slug' => 'phases_de_projet',
       'type' => 'taxonomy',
       'filter_items' => []
     ],
@@ -146,20 +152,8 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
-      'label' => 'Envergure de projets',
-      'slug' => 'envergure_de_projets',
-      'type' => 'taxonomy',
-      'filter_items' => []
-    ],
-    [
-      'label' => 'Disciplines Construction',
-      'slug' => 'disciplines_construction',
-      'type' => 'taxonomy',
-      'filter_items' => []
-    ],
-    [
-      'label' => 'Phases de projet',
-      'slug' => 'phases_de_projet',
+      'label' => 'Pour département',
+      'slug' => 'pour_departement',
       'type' => 'taxonomy',
       'filter_items' => []
     ],
