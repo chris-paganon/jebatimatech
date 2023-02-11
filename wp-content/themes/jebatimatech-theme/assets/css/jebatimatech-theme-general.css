@@ -28,18 +28,10 @@ div.site div.sidebar {
 .jbati-solution {
   position: relative;
   background-color: transparent;
-  margin: 40px 40px;
+  margin: 14px;
   cursor: pointer;
-}
-.jbati-solution::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -20px;
-  width: 70%;
-  right: 15%;
-  height: 1px;
-  background-color: #e5e5e5;
+  border: 1px solid var(--contrast-3);
+  border-radius: 15px;
 }
 .jbati-solution:not(.active) {
   position:absolute;
@@ -50,6 +42,28 @@ div.site div.sidebar {
 .jbati-solution.active {
   opacity: 1;
   transition: opacity 1s linear;
+}
+.jbati-solution .inside-article > * {
+  padding: 0px 25px;
+}
+.jbati-solution .inside-article > div:first-child {
+  padding-top: 25px;
+}
+.jbati-solution .inside-article > div:last-child {
+  padding-bottom: 25px;
+}
+.jbati-solution .entry-summary {
+  margin: 30px 0px;
+}
+.solution-footer {
+  background-color: var(--base);
+  border-radius: 0px 0px 15px 15px;
+}
+.solution-footer ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
 }
 .checkmark {
   color: white;
@@ -84,7 +98,7 @@ margin: 0px 10px;
   width: 100%;
 }
 
-/* Accordeon */
+/* Accordion */
 .jbati-accordion-button {
   position: relative;
   width: 100%;
