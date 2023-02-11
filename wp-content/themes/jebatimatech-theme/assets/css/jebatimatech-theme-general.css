@@ -51,6 +51,16 @@ div.site div.sidebar {
   opacity: 1;
   transition: opacity 1s linear;
 }
+.checkmark {
+  color: white;
+  padding: 0px 5px;
+  border-radius: 9999px;
+  background-color: var(--contrast-3);
+  margin-right: 10px;
+}
+.checkmark.active {
+  background-color: var(--light-blue);
+}
 
 /* Filters */
 .filter {

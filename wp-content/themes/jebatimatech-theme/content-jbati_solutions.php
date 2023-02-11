@@ -35,5 +35,13 @@ foreach ($args['properties'] as $property) {
     <div class="entry-summary">
       <?php esc_html_e($args['content'], 'jebatimatech'); ?>
     </div>
+    <div class="solution-footer">
+      <h4>Fonctionalitées</h4>
+      <ul>
+        <li><span class="checkmark <?php echo esc_attr(get_functionality_class($args, 'productivite')) ?>">✓</span>Productivité</li>
+        <li><span class="checkmark <?php echo esc_attr(get_functionality_class($args, 'securite')) ?>">✓</span>Sécurité</li>
+        <li><span class="checkmark <?php echo esc_attr(get_functionality_class($args, 'environnement')) ?>">✓</span>Environnement</li>
+      </ul>
+    </div> 
   </div>
 </article>

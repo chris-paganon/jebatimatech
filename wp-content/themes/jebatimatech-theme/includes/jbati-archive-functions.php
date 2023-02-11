@@ -197,3 +197,19 @@ function jbati_get_filter_items($filter, $solutions) {
   }
   return $filter_items;
 }
+
+/**
+ * Set active class if the functionality exists in the solution
+ */
+function get_functionality_class($solution, $functionality_slug) {
+  foreach ($solution['properties'] as $property) {
+    if ($property['slug'] == 'themes') {
+      foreach ($property['values'] as $value) {
+        if ($value['slug'] == $functionality_slug) {
+          return 'active';
+        }
+      }
+    }
+  }
+  return '';
+}
