@@ -84,7 +84,7 @@ jQuery(document).ready(function( $ ) {
   }
 
   /**
-   * Accordeon for filters
+   * Accordion for filters
    */
   $('.jbati-accordion-button').click( (event) => {
     $(event.target).parents('.jbati-accordion-item').toggleClass('active')
