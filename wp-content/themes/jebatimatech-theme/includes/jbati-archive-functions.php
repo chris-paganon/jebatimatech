@@ -248,13 +248,14 @@ function jbati_get_terms_list($taxonomy_slug, $post_id) {
   if (empty($terms)) return;
   $taxonomy = get_taxonomy($taxonomy_slug);
 
-  $terms_list = '<h3 class="taxonomy-label">' . $taxonomy->label . ' : </h3>';
+  $terms_list = '<div class="jbati-taxonomy-content-wrapper">';
+  $terms_list .= '<h3 class="taxonomy-label">' . $taxonomy->label . ' : </h3>';
   $terms_list .= '<ul>';
   foreach ($terms as $term) {
     $terms_list .= '<li class="term">' . $term->name . '</li>';
   }
-  $terms_list .= '</ul>';
-  
+  $terms_list .= '</ul></div>';
+
   return $terms_list;
 }
 
