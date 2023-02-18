@@ -239,3 +239,30 @@ function get_functionality_class($solution, $functionality_slug) {
   }
   return '';
 }
+
+/**
+ * Display a list of terms and the taxonomy label from a taxonomy slug and a postid
+ */
+function jbati_get_terms_list($taxonomy_slug, $post_id) {
+  $terms = get_the_terms( $post_id, $taxonomy_slug );
+  if (empty($terms)) return;
+  $taxonomy = get_taxonomy($taxonomy_slug);
+
+  $terms_list = '<h3 class="taxonomy-label">' . $taxonomy->label . ' : </h3>';
+  $terms_list .= '<ul>';
+  foreach ($terms as $term) {
+    $terms_list .= '<li class="term">' . $term->name . '</li>';
+  }
+  $terms_list .= '</ul>';
+  
+  return $terms_list;
+}
+
+/**
+ * Display a ACF field value and label from a field slug and a postid
+ */
+function jbati_get_acf_field_value($field_slug, $post_id) {
+  $field = get_field_object($field_slug, $post_id);
+  if (empty($field)) return;
+  return '<span class="acf-label">' . $field['label'] . ' : </span><span class="acf-value">' . $field['value'] . '</span>';
+}
