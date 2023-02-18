@@ -13,93 +13,9 @@ div.site div.sidebar {
   align-items: center;
   width: 100%;
 }
-
-/* Archive Solutions */
-.solution-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.jbati-solutions-archive-content h2 {
-  text-align: center;
-}
-.jbati-solution {
-  position: relative;
-  background-color: transparent;
-  margin: 14px;
-  cursor: pointer;
-  border: 1px solid var(--contrast-3);
-  border-radius: 15px;
-}
-.jbati-solution:not(.active) {
-  position:absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-.jbati-solution.active {
-  opacity: 1;
-  transition: opacity 1s linear;
-}
-.jbati-solution .inside-article > * {
-  padding: 0px 25px;
-}
-.jbati-solution .inside-article > div:first-child {
-  padding-top: 25px;
-}
-.jbati-solution .inside-article > div:last-child {
-  padding-bottom: 25px;
-}
-.jbati-solution .entry-summary {
-  margin: 30px 0px;
-}
-.solution-footer {
-  background-color: var(--base);
-  border-radius: 0px 0px 15px 15px;
-}
-.solution-footer ul {
+ul {
   list-style: none;
   margin: 0;
-  display: flex;
-  justify-content: space-between;
-}
-.checkmark {
-  color: white;
-  padding: 0px 5px;
-  border-radius: 9999px;
-  background-color: var(--contrast-3);
-  margin-right: 10px;
-}
-.checkmark.active {
-  background-color: var(--light-blue);
-}
-
-/* Filters */
-.filter {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--contrast-3);
-}
-.filter-title {
-  font-size: 1.1rem;
-}
-.filter-items-wrapper {
-  margin-bottom: 20px;
-}
-.filter-item-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-}
-.filter-item-wrapper .checkbox {
-margin: 0px 10px;
-}
-.filter-item-wrapper .label {
-  width: 100%;
 }
 
 /* Accordion */
@@ -142,5 +58,3 @@ div.button a {
   padding: 0px 10px;
   display: block;
 }
-
-/* Solution box */
