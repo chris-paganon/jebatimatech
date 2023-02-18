@@ -118,29 +118,29 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
-      'label' => 'Accessibilité : Langue de travail (interface)',
-      'slug' => 'langue_de_travail',
-      'type' => 'taxonomy',
-      'show_title' => true,
-      'filter_items' => []
-    ],
-    [
-      'label' => 'Catégorie de Clientèle',
+      'label' => 'Type d\'utilisateur',
       'slug' => 'categorie_de_clientele',
       'type' => 'taxonomy',
       'show_title' => true,
       'filter_items' => []
     ],
     [
-      'label' => 'Envergure Clientèle Visée',
+      'label' => 'Taille d\'entreprise',
       'slug' => 'envergure_clientele_visee',
       'type' => 'taxonomy',
       'show_title' => true,
       'filter_items' => []
     ],
     [
-      'label' => 'Disciplines Construction',
+      'label' => 'Spécialités',
       'slug' => 'disciplines_construction',
+      'type' => 'taxonomy',
+      'show_title' => true,
+      'filter_items' => []
+    ],
+    [
+      'label' => 'Langue d\'interface',
+      'slug' => 'langue_de_travail',
       'type' => 'taxonomy',
       'show_title' => true,
       'filter_items' => []
@@ -153,14 +153,14 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
-      'label' => 'Catégorie de projet / Modèle de projet',
+      'label' => 'Type de projet',
       'slug' => 'categorie_de_projet',
       'type' => 'taxonomy',
       'show_title' => true,
       'filter_items' => []
     ],
     [
-      'label' => 'Pour département',
+      'label' => 'Département',
       'slug' => 'pour_departement',
       'type' => 'taxonomy',
       'show_title' => true,
