@@ -44,12 +44,12 @@ get_header(); ?>
 			<div class="section-content">
 				<div class="section-main-content jbati-2-columns">
 					<?php echo jbati_get_terms_list('envergure_clientele_visee', get_the_ID()); ?>
-					<p><?php echo jbati_get_acf_field_value('moyenne_utilisateur_par_entreprise', get_the_ID()); ?></p>
+					<?php echo jbati_get_acf_field_value('moyenne_utilisateur_par_entreprise', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('categorie_de_clientele', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('pour_departement', get_the_ID()); ?>
 				</div>
 				<div class="section-side-content">
-					<?php echo jbati_get_terms_list('disciplines_construction', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('disciplines_construction', get_the_ID(), 'boxes-list'); ?>
 				</div>
 			</div>
 		</section>
@@ -62,7 +62,7 @@ get_header(); ?>
 					<?php echo jbati_get_terms_list('envergure_de_projets', get_the_ID()); ?>
 				</div>
 				<div class="section-main-content">
-					<?php echo jbati_get_terms_list('phases_de_projet', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('phases_de_projet', get_the_ID(), 'boxes-list'); ?>
 				</div>
 			</div>
 		</section>
@@ -70,17 +70,17 @@ get_header(); ?>
 		<section class="solution-section solution-specifications">
 			<h2><?php esc_html_e('Sécifications', 'jebatimatech'); ?></h2>
 			<div class="section-content jbati-3-columns">
-				<p><?php echo jbati_get_acf_field_value('pourcent_quebecois', get_the_ID()); ?></p>
+				<?php echo jbati_get_acf_field_value('pourcent_quebecois', get_the_ID()); ?>
 				<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID()); ?>
 				<?php echo jbati_get_terms_list('import_export', get_the_ID()); ?>
-				<p><?php echo jbati_get_acf_field_value('pourcent_quebecois_service', get_the_ID()); ?></p>
-				<p><?php echo jbati_get_acf_field_value('equipement_fonctionne_avec_logiciel', get_the_ID()); ?></p>
+				<?php echo jbati_get_acf_field_value('pourcent_quebecois_service', get_the_ID()); ?>
+				<?php echo jbati_get_acf_field_value('equipement_fonctionne_avec_logiciel', get_the_ID()); ?>
 			</div>
 		</section>
 
 		<section class="solution-section solution-functionalities">
 			<h2><?php esc_html_e('Fonctionalités', 'jebatimatech'); ?></h2>
-			<p><?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?></p>
+			<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
 			<?php echo jbati_get_terms_list('themes', get_the_ID()); ?>
 		</section>
 	</main>

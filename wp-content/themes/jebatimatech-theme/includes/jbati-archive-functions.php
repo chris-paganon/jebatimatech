@@ -243,12 +243,13 @@ function get_functionality_class($solution, $functionality_slug) {
 /**
  * Display a list of terms and the taxonomy label from a taxonomy slug and a postid
  */
-function jbati_get_terms_list($taxonomy_slug, $post_id) {
+function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '') {
   $terms = get_the_terms( $post_id, $taxonomy_slug );
   if (empty($terms)) return;
   $taxonomy = get_taxonomy($taxonomy_slug);
 
-  $terms_list = '<div class="jbati-taxonomy-content-wrapper">';
+
+  $terms_list = '<div class="jbati-taxonomy-content-wrapper ' . $extra_classes . '">';
   $terms_list .= '<h3 class="taxonomy-label">' . $taxonomy->label . ' : </h3>';
   $terms_list .= '<ul>';
   foreach ($terms as $term) {
@@ -265,5 +266,39 @@ function jbati_get_terms_list($taxonomy_slug, $post_id) {
 function jbati_get_acf_field_value($field_slug, $post_id) {
   $field = get_field_object($field_slug, $post_id);
   if (empty($field)) return;
-  return '<span class="acf-label">' . $field['label'] . ' : </span><span class="acf-value">' . $field['value'] . '</span>';
+
+  $label = $field['label'];
+  $value = $field['value'];
+  $percent_bar = '';
+
+  if ($field['type'] === 'number' && $field['append'] === '%') {
+    ob_start(); ?>
+    <div class="acf-percent-outer-bar">
+      <div class="acf-percent-bar" style="width:<? echo $value; ?>%"></div>
+    </div>
+    <?php
+    $percent_bar = ob_get_clean();
+
+    $html = <<<HTML
+    <div class="jbati-acf-content-wrapper">
+      <h3 class="acf-label">$label: </h3>
+      <div class="acf-percent-wrapper">
+        $percent_bar
+        <span class="acf-value">$value%</span>
+      </div>
+    </div>
+    HTML;
+  } else {
+    if ($field['type'] === 'true_false') {
+      $value = $value ? 'Oui' : 'Non';
+    }
+    $html = <<<HTML
+    <div class="jbati-acf-content-wrapper">
+      <h3 class="acf-label">$label: </h3>
+      <p class="acf-value">$value</p>
+    </div>
+    HTML;
+  }
+
+  return $html;
 }

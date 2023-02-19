@@ -58,3 +58,32 @@ div.button a {
   padding: 0px 10px;
   display: block;
 }
+
+/* Percent bar */
+.acf-percent-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.acf-percent-outer-bar {
+  width: 80%;
+  height: 20px;
+  border: 1px solid black;
+  box-sizing: content-box;
+}
+.acf-percent-bar {
+  background-color: var(--light-blue);
+  height: 20px;
+}
+
+/* Boxes list */
+.boxes-list ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.boxes-list li {
+  background-color: var(--light-blue);
+  margin: 5px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
