@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) exit;
 add_action('wp_enqueue_scripts', 'jbati_theme_enqueue_scripts', 20);
 
 function jbati_theme_enqueue_scripts() {
-  if (is_post_type_archive( 'solutions' ) ) {
+  if (is_post_type_archive( 'solutions' ) || is_search()) {
     wp_enqueue_script('jbati-archive', get_stylesheet_directory_uri() . '/assets/js/jbati-archive.js', array('jquery'), rand(111, 9999), true);
   }
 }
