@@ -111,6 +111,14 @@ add_filter( 'jbati_filters_array', 'jbati_get_all_filters_data', 10, 2 );
 function jbati_get_all_filters_data( $filters, $solutions ) {
   $filters = [
     [
+      'label' => "Pays d'origine",
+      'slug' => 'pays_origine',
+      'type' => 'taxonomy',
+      'show_title' => false,
+      'hide_filter' => true,
+      'filter_items' => []
+    ],
+    [
       'label' => 'Catégorie de technologie',
       'slug' => 'categorie_technologie',
       'type' => 'acf',

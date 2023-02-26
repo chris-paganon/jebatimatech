@@ -26,7 +26,17 @@ do_action( 'jbati_before_archive', $solutions, $filters );
   </div>
 
   <div class="jbati-solutions-archive-content content-area" id="primary">
-    <div class="jbati-active-filters-pills"></div>
+    <div class="jbati-extra-filter-controls-wrapper">
+      <div class="jbati-active-filters-pills"></div>
+      <div class="jbati-made-in-ca-switch jbati-switch">
+        <div class="jbati-switch-track"></div>
+        <div class="jbati-switch-control">
+          <input type="checkbox" id="jbati-made-in-ca-switch" class="jbati-made-in-ca-switch-input jbati-switch-input" value="false">
+          <div class="jbati-switch-thumb"></div>
+        </div>
+      </div>
+      <label for="jbati-made-in-ca-switch" class="jbati-made-in-ca-switch-label">Made in CA</label>
+    </div>
     <?php 
     foreach ( $solutions as $solution) : 
       get_template_part( 'content', 'jbati_solutions', $solution );

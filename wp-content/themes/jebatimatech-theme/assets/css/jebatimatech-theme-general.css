@@ -124,3 +124,69 @@ div.button a {
   margin-left: 10px;
   cursor: pointer;
 }
+
+/* Switch */
+.jbati-switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  flex: none;
+}
+.jbati-switch-track {
+  width: 50px;
+  height: 25px;
+  border-radius: 9999px;
+  background-color: var(--contrast-3);
+  cursor: pointer;
+}
+.jbati-switch-control {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: .15s transform cubic-bezier(.4,0,.2,1);
+  transform: translate(-10px);
+  position: absolute;
+  align-items: center;
+  display: flex;
+  flex: none;
+  justify-content: center;
+}
+.jbati-switch-control::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.jbati-switch.active .jbati-switch-track {
+  background-color: #eb0d0d;
+}
+.jbati-switch.active .jbati-switch-control {
+  transform: translate(10px);
+}
+.jbati-switch-input {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.jbati-switch-thumb {
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--base-3);
+  display: flex;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  pointer-events: none;
+  transition: .15s transform cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}

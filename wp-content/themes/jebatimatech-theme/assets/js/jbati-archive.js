@@ -58,6 +58,10 @@ jQuery(document).ready(function( $ ) {
     })
   })
 
+  $('#jbati-made-in-ca-switch').click( (event) => {
+    filters.find( filter => filter.slug == "pays_origine" ).filter_items.find( filter_item => filter_item.slug == "canada" ).active = event.target.checked
+  })
+
   /**
    * Update the 'active' value of solutions from active filters
    */
@@ -104,6 +108,13 @@ jQuery(document).ready(function( $ ) {
     })
     $('.jbati-active-filters-pills').html(active_filters_pills.flat().join(''))
   }
+
+  /**
+   * Switch component
+   */
+  $('.jbati-switch').click( (event) => {
+    $(event.currentTarget).toggleClass('active')
+  })
 
   /**
    * Accordion for filters
