@@ -249,11 +249,11 @@ function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '') {
   $taxonomy = get_taxonomy($taxonomy_slug);
 
 
-  $terms_list = '<div class="jbati-taxonomy-content-wrapper ' . $extra_classes . '">';
-  $terms_list .= '<h3 class="taxonomy-label">' . $taxonomy->label . ' : </h3>';
+  $terms_list = '<div class="jbati-taxonomy-content-wrapper ' . esc_attr($extra_classes) . '">';
+  $terms_list .= '<h3 class="taxonomy-label">' . esc_html__($taxonomy->label, 'jebatimatech') . ' : </h3>';
   $terms_list .= '<ul>';
   foreach ($terms as $term) {
-    $terms_list .= '<li class="term">' . $term->name . '</li>';
+    $terms_list .= '<li class="term">' . esc_html__($term->name, 'jebatimatech') . '</li>';
   }
   $terms_list .= '</ul></div>';
 
