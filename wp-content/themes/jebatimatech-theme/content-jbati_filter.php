@@ -2,11 +2,11 @@
 if (!defined('ABSPATH')) exit;
 ?>
 
-<div class="filter jbati-accordion-item" id="filter-<?php esc_attr_e($args['slug'], 'jebatimatech'); ?>">
+<div class="filter jbati-accordion-item <?php if (!$args['show_title']) echo 'active'; ?>" id="filter-<?php esc_attr_e($args['slug'], 'jebatimatech'); ?>">
   <?php if ($args['show_title']) : ?>
     <h3 class="filter-title jbati-accordion-button"><?php esc_html_e($args['label'], 'jebatimatech'); ?></h3>
   <?php endif ?>
-  <div class="filter-items-wrapper jbati-accordion-content <?php if (!$args['show_title']) echo 'active'; ?>">
+  <div class="filter-items-wrapper jbati-accordion-content">
     <?php foreach ($args['filter_items'] as $filter_item) : ?>
       <?php if($filter_item['show']) : ?>
         <div class="filter-item-wrapper">

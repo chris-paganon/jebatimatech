@@ -1,11 +1,27 @@
+/* Grey background */
+body,
+body.archive div.site {
+  background-color: var(--base-2);
+}
+body.archive div.site div.site-content {
+  padding: 0px 60px 60px 60px;
+}
 /* Intro */
 .jbati-intro {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   margin-bottom: 60px;
+  padding: 40px 80px;
+  background-color: var(--base);
 }
 
 /* Archive Solutions */
 .jbati-solutions-archive-content {
-  margin-top: -40px;
+  margin-top: -25px;
 }
 .solution-item-header {
   display: flex;
@@ -34,11 +50,15 @@
 }
 .jbati-solution {
   position: relative;
-  background-color: transparent;
+  background-color: var(--base-3);
   margin: 25px 14px;
   cursor: pointer;
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+  transition: box-shadow 0.4s linear, opacity 1s linear;
+}
+.jbati-solution:hover {
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.4);
 }
 .jbati-solution:not(.active) {
   position:absolute;
@@ -48,7 +68,6 @@
 }
 .jbati-solution.active {
   opacity: 1;
-  transition: opacity 1s linear;
 }
 .jbati-solution .inside-article > * {
   padding: 0px 25px;
@@ -83,12 +102,16 @@
 }
 
 /* Filters */
+.inside-left-sidebar {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
+}
+.filters-title {
+  margin: 20px;
+}
 .filter-title {
   font-size: 1.1rem;
-  margin: 0;
-}
-.filter-items-wrapper {
-  margin-bottom: 20px;
 }
 .filter-item-wrapper {
   width: 100%;
