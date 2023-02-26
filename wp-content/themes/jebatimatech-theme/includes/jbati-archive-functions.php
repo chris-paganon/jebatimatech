@@ -248,9 +248,8 @@ function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '') {
   if (empty($terms)) return;
   $taxonomy = get_taxonomy($taxonomy_slug);
 
-
   $terms_list = '<div class="jbati-taxonomy-content-wrapper ' . esc_attr($extra_classes) . '">';
-  $terms_list .= '<h3 class="taxonomy-label">' . esc_html__($taxonomy->label, 'jebatimatech') . ' : </h3>';
+  $terms_list .= '<h3 class="taxonomy-label">' . esc_html__($taxonomy->label, 'jebatimatech') . '</h3>';
   $terms_list .= '<ul>';
   foreach ($terms as $term) {
     $terms_list .= '<li class="term">' . esc_html__($term->name, 'jebatimatech') . '</li>';
@@ -281,7 +280,7 @@ function jbati_get_acf_field_value($field_slug, $post_id) {
 
     $html = <<<HTML
     <div class="jbati-acf-content-wrapper">
-      <h3 class="acf-label">$label: </h3>
+      <h3 class="acf-label">$label</h3>
       <div class="acf-percent-wrapper">
         $percent_bar
         <span class="acf-value">$value%</span>
@@ -294,7 +293,7 @@ function jbati_get_acf_field_value($field_slug, $post_id) {
     }
     $html = <<<HTML
     <div class="jbati-acf-content-wrapper">
-      <h3 class="acf-label">$label: </h3>
+      <h3 class="acf-label">$label</h3>
       <p class="acf-value">$value</p>
     </div>
     HTML;
