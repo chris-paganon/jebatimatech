@@ -1,8 +1,30 @@
+/* Intro */
+.jbati-intro {
+  margin-bottom: 60px;
+}
+
 /* Archive Solutions */
 .solution-item-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.solution-item-header-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.solution-item-header .entry-thumbnail {
+  line-height: 0px;
+}
+.solution-item-header img {
+  max-width: 150px;
+}
+.solution-item-header-title-wrapper h3 {
+  margin: 0px;
+}
+.solution-item-header-link-wrapper {
+  min-width: fit-content;
 }
 .jbati-solutions-archive-content h2 {
   text-align: center;
@@ -32,6 +54,7 @@
   padding-top: 25px;
 }
 .jbati-solution .inside-article > div:last-child {
+  padding-top: 10px;
   padding-bottom: 25px;
 }
 .jbati-solution .entry-summary {
@@ -53,7 +76,7 @@
   margin-right: 10px;
 }
 .checkmark.active {
-  background-color: var(--light-blue);
+  background-color: var(--accent);
 }
 
 /* Filters */
