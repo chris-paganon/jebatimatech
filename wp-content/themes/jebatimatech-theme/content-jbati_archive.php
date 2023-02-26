@@ -26,10 +26,11 @@ do_action( 'jbati_before_archive', $solutions, $filters );
   </div>
 
   <div class="jbati-solutions-archive-content content-area" id="primary">
-      <?php 
-      foreach ( $solutions as $solution) : 
-        get_template_part( 'content', 'jbati_solutions', $solution );
-      endforeach
-      ?>
+    <div class="jbati-active-filters-pills"></div>
+    <?php 
+    foreach ( $solutions as $solution) : 
+      get_template_part( 'content', 'jbati_solutions', $solution );
+    endforeach
+    ?>
   </div>
 </main>

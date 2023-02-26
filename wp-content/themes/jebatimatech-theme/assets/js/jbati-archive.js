@@ -32,6 +32,7 @@ jQuery(document).ready(function( $ ) {
       if ( ('slug' in object) && key === 'active' && typeof value === 'boolean' ) {
         object[key] = value
         updateSolutions()
+        updateFiltersDOM()
         return true
       }
       return Reflect.set(...arguments)
@@ -50,6 +51,9 @@ jQuery(document).ready(function( $ ) {
     filter.filter_items.forEach( filter_item => {
       $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).click( (event) => {
         filter_item.active = event.target.checked
+      })
+      $('.jbati-active-filters-pills').on('click', `.jbati-pill[data-filter-slug="${filter.slug}"][data-filter-item-slug="${filter_item.slug}"]`, (event) => {
+        filter_item.active = false
       })
     })
   })
@@ -81,6 +85,24 @@ jQuery(document).ready(function( $ ) {
     } else {
       $(`.jbati-solution[data-solution-id="${solution_id}"]`).removeClass('active')
     }
+  }
+
+  /**
+   * Add filter pills and keep the checkboxes in sync with the pills (if pill is used to remove filter)
+   */
+  function updateFiltersDOM() {
+    const active_filters_pills = []
+    filters.forEach( filter => {
+      return filter.filter_items.map( filter_item => {
+        if (filter_item.active === false) {
+          $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).prop('checked', false)
+        } else {
+          $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).prop('checked', true)
+          active_filters_pills.push(`<span class="jbati-pill" data-filter-slug="${filter.slug}" data-filter-item-slug="${filter_item.slug}">${filter_item.label}</span>`)
+        }
+      })
+    })
+    $('.jbati-active-filters-pills').html(active_filters_pills.flat().join(''))
   }
 
   /**

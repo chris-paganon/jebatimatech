@@ -110,3 +110,17 @@ div.button a {
   padding: 5px 15px;
   border-radius: 10px;
 }
+
+/* Pills */
+.jbati-pill {
+  background-color: var(--base);
+  padding: 5px 10px;
+  border-radius: 9999px;
+  margin: 5px;
+  display: inline-block;
+}
+.jbati-pill::after {
+  content: "x";
+  margin-left: 10px;
+  cursor: pointer;
+}
