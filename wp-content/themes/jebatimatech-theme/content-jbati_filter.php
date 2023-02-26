@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) exit;
-?>
 
+if (! (isset($args['hide_filter']) && $args['hide_filter'] === true)) : ?>
 <div class="filter jbati-accordion-item <?php if (!$args['show_title']) echo 'active'; ?>" id="filter-<?php esc_attr_e($args['slug'], 'jebatimatech'); ?>">
   <?php if ($args['show_title']) : ?>
     <h3 class="filter-title jbati-accordion-button"><?php esc_html_e($args['label'], 'jebatimatech'); ?></h3>
@@ -17,3 +17,4 @@ if (!defined('ABSPATH')) exit;
     <?php endforeach ?>
   </div>
 </div>
+<?php endif ?>

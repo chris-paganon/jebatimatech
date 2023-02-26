@@ -102,7 +102,9 @@ jQuery(document).ready(function( $ ) {
           $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).prop('checked', false)
         } else {
           $(`#filter-${filter.slug} #filter-item-${filter_item.slug}`).prop('checked', true)
-          active_filters_pills.push(`<span class="jbati-pill" data-filter-slug="${filter.slug}" data-filter-item-slug="${filter_item.slug}">${filter_item.label}</span>`)
+          if ( !(filter.hide_filter && filter.hide_filter === true) ) {
+            active_filters_pills.push(`<span class="jbati-pill" data-filter-slug="${filter.slug}" data-filter-item-slug="${filter_item.slug}">${filter_item.label}</span>`)
+          }
         }
       })
     })
