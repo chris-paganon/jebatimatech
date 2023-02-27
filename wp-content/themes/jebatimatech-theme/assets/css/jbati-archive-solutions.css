@@ -68,6 +68,9 @@ body.archive div.site div.site-content {
   height: 0;
   width: 0;
 }
+.jbati-solution:not(.active) > * {
+  display: none;
+}
 .jbati-solution.active {
   opacity: 1;
 }
