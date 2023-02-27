@@ -1,5 +1,6 @@
 jQuery(document).ready(function( $ ) {
 
+  // A function to make nested values in an object reactive
   function nestedReactiveProxy(target, key, handler) {
     if (key == 'isProxy') return true;
     const prop = target[key];
@@ -12,6 +13,7 @@ jQuery(document).ready(function( $ ) {
     return target[key];
   }
 
+  // A proxy to update the DOM when the 'active' value of a solution changes
   const solutionsHandler = {
     get(target, key) {
       return nestedReactiveProxy(target, key, solutionsHandler)
@@ -24,6 +26,7 @@ jQuery(document).ready(function( $ ) {
     }
   }
 
+  // A proxy to update the DOM when the 'active' value of a filter changes
   const filtersHandler = {
     get(target, key) {
       return nestedReactiveProxy(target, key, filtersHandler)
