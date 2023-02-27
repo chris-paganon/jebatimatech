@@ -25,9 +25,6 @@ body.archive div.site div.site-content {
 }
 
 /* Archive Solutions */
-.jbati-solutions-archive-content {
-  margin-top: -25px;
-}
 .solution-item-header {
   display: flex;
   justify-content: space-between;
@@ -129,4 +126,21 @@ body.archive div.site div.site-content {
 }
 .filter-item-wrapper .label {
   width: 100%;
+}
+
+/* Extra filter controls */
+.jbati-extra-filter-controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 20px;
+  min-width: fit-content;
+}
+.jbati-made-in-ca-switch-label {
+  display: flex;
+  align-items: center;
+}
+.jbati-flag-icon {
+  font-size: 30px;
+  margin-right: 10px;
 }

@@ -126,6 +126,11 @@ div.button a {
 }
 
 /* Switch */
+.jbati-switch-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
 .jbati-switch {
   display: inline-flex;
   align-items: center;
