@@ -16,6 +16,6 @@ get_header();
 </div>
 
 <?php
-get_template_part('content', 'jbati_archive');
+get_template_part('templates/content', 'jbati_archive');
 
 get_footer();

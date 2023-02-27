@@ -19,7 +19,7 @@ do_action( 'jbati_before_archive', $solutions, $filters );
       <h2 class="filters-title">Filtrer par:</h2>
       <?php 
       foreach ( $filters as $filter) : 
-        get_template_part( 'content', 'jbati_filter', $filter );
+        get_template_part( 'templates/content', 'jbati_filter', $filter );
       endforeach
       ?>
     </div>
@@ -41,7 +41,7 @@ do_action( 'jbati_before_archive', $solutions, $filters );
     </div>
     <?php 
     foreach ( $solutions as $solution) : 
-      get_template_part( 'content', 'jbati_solutions', $solution );
+      get_template_part( 'templates/content', 'jbati_solutions', $solution );
     endforeach
     ?>
   </div>
