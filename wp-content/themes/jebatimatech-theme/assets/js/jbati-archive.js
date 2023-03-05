@@ -61,6 +61,20 @@ jQuery(document).ready(function( $ ) {
     })
   })
 
+  /**
+   * When the clear all filters is clicked, reset all filters
+   */ 
+  $('.jbati-active-filters-pills').on('click', '.jbati-pill[data-filter-slug="clear-all"]', (event) => {
+    filters.forEach( filter => {
+      filter.filter_items.forEach( filter_item => {
+        filter_item.active = false
+      })
+    })
+  })
+
+  /**
+   * When the 'Made in Canada' switch is clicked, update the 'active' value of the 'Canada' filter item
+   */
   $('#jbati-made-in-ca-switch').click( (event) => {
     filters.find( filter => filter.slug == "pays_origine" ).filter_items.find( filter_item => filter_item.slug == "canada" ).active = event.target.checked
   })
@@ -111,6 +125,12 @@ jQuery(document).ready(function( $ ) {
         }
       })
     })
+    
+    // If active_filters_pills is not empty, add a clear all button at the beginning
+    if (active_filters_pills.length > 0) {
+      active_filters_pills.unshift(`<span class="jbati-pill" data-filter-slug="clear-all">Tout effacer</span>`)
+    }
+
     $('.jbati-active-filters-pills').html(active_filters_pills.flat().join(''))
   }
 

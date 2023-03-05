@@ -134,6 +134,7 @@ body.search div.site div.site-content {
 .jbati-made-in-ca-switch-label {
   display: flex;
   align-items: center;
+  min-width: 215px;
 }
 .jbati-flag-icon {
   font-size: 30px;
