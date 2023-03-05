@@ -3,7 +3,7 @@
   position: relative;
   margin: 30px 0px;
   padding: 40px;
-  border: 1px solid var(--contrast-3);
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 .solution-section h3 {
@@ -33,6 +33,11 @@
   gap: 15px;
 }
 
+.acf-value,
+div:not(.boxes-list) li.term {
+  color: var(--secondary);
+}
+
 /* header section */
 .solution-header {
   display: flex;
@@ -43,11 +48,41 @@
 .solution-header img {
   width: 150px;
 }
+.solution-header-image-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 .content-language {
   display: flex;
   justify-content: space-between;
   gap: 15px;
   margin: 20px 0px;
+}
+
+/* Functionalities section */
+.jbati-full-width {
+  background-color: var(--base);
+  margin: 40px -40px;
+  padding: 25px 40px;
+}
+.jbati-full-width .jbati-acf-content-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+}
+.jbati-full-width .jbati-acf-content-wrapper > * {
+  font-size: 23px;
+  font-weight: 600;
+  color: var(--contrast-1);
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+.theme-items {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 80px;
 }
 
 /* Comment section */

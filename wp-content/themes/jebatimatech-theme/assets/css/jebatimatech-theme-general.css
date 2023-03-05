@@ -113,11 +113,24 @@ div.button a {
   display: flex;
   flex-wrap: wrap;
 }
-.boxes-list li {
+div.boxes-list li {
+  color: var(--contrast);
   background-color: var(--accent);
   margin: 5px;
   padding: 5px 15px;
   border-radius: 10px;
+}
+
+/* Checkmarks */
+.checkmark {
+  color: white;
+  padding: 0px 5px;
+  border-radius: 9999px;
+  background-color: var(--contrast-3);
+  margin-right: 10px;
+}
+.checkmark.active {
+  background-color: var(--accent);
 }
 
 /* Pills */

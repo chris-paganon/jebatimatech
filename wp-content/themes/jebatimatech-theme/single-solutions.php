@@ -12,10 +12,12 @@ get_header(); ?>
 <div <?php generate_do_attr( 'content' ); ?>>
 	<main <?php generate_do_attr( 'main' ); ?>>
 		<section class="solution-section solution-header">
-			<?php the_post_thumbnail(); ?>
-			<div class="solution-header-name">
-				<h1><?php the_title(); ?></h1>
-				<h3><?php the_field('categorie_technologie'); ?></h3>
+			<div class="solution-header-image-name-wrapper">
+				<?php the_post_thumbnail(); ?>
+				<div class="solution-header-name">
+					<h1><?php the_title(); ?></h1>
+					<h3><?php the_field('categorie_technologie'); ?></h3>
+				</div>
 			</div>
 			<div class="button button-primary">
 				<a target="_blank" href="<?php esc_attr_e(the_field('compagnie'), 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
@@ -80,8 +82,14 @@ get_header(); ?>
 
 		<section class="solution-section solution-functionalities">
 			<h2><?php esc_html_e('Fonctionalités', 'jebatimatech'); ?></h2>
-			<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
-			<?php echo jbati_get_terms_list('themes', get_the_ID()); ?>
+			<div class="jbati-full-width">
+				<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
+			</div>
+			<ul class="theme-items">
+				<?php foreach( get_the_terms( get_the_ID(), 'themes' ) as $term ) : ?>
+        	<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
+				<?php endforeach; ?>
+      </ul>
 		</section>
 
 		<section class="solution-section solution-comments">

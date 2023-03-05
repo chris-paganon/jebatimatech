@@ -97,16 +97,6 @@ body.search div.site div.site-content {
   display: flex;
   justify-content: space-between;
 }
-.checkmark {
-  color: white;
-  padding: 0px 5px;
-  border-radius: 9999px;
-  background-color: var(--contrast-3);
-  margin-right: 10px;
-}
-.checkmark.active {
-  background-color: var(--accent);
-}
 
 /* Filters */
 .inside-left-sidebar {
