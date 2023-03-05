@@ -83,6 +83,14 @@ get_header(); ?>
 			<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
 			<?php echo jbati_get_terms_list('themes', get_the_ID()); ?>
 		</section>
+
+		<section class="solution-section solution-comments">
+			<h2><?php esc_html_e('Commentaires', 'jebatimatech'); ?></h2>
+			<?php comment_form([
+				'label_submit' => esc_html__('Envoyer', 'jebatimatech'),
+				'title_reply' => esc_html__('Laisser un commentaire', 'jebatimatech'),
+			]); ?>
+		</section>
 	</main>
 </div>
 

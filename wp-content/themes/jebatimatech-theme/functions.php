@@ -8,6 +8,7 @@ add_action( 'init', 'jbati_theme_initialie' );
 
 function jbati_theme_initialie() {
   include_once(  get_stylesheet_directory() . '/includes/jbati-archive-functions.php');
+  include_once(  get_stylesheet_directory() . '/includes/jbati-single-functions.php');
 }
 
 
