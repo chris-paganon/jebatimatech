@@ -44,7 +44,6 @@ function jbati_add_star_rating() {
 add_filter( 'pre_comment_on_post', 'jbati_validate_comment_rating', 10, 1 );
 
 function jbati_validate_comment_rating( $comment_post_id ) {
-  error_log(print_r($_POST, true));
   if ( ! isset( $_POST['jbati_rating'] ) || empty($_POST['jbati_rating']) ) {
     wp_die( __( 'Erreur: veuillez donner une note à la solution.', 'jebatimatech' ) );
   }
