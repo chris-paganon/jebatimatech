@@ -1,9 +1,11 @@
 /* Grey background */
 body,
-body.archive div.site {
+body.archive div.site,
+body.search div.site {
   background-color: var(--base-2);
 }
-body.archive div.site div.site-content {
+body.archive div.site div.site-content,
+body.search div.site div.site-content {
   padding: 0px 60px 60px 60px;
 }
 /* Intro */
