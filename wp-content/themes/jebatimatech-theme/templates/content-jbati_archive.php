@@ -22,12 +22,14 @@ do_action( 'jbati_before_archive', $solutions, $filters );
   <div class="jabti-solutions-archive-grid">
     <div class="jbati-solutions-archive-sidebar sidebar is-left-sidebar" id="left-sidebar">
       <div class="inside-left-sidebar">
-        <h2 class="filters-title">Filtrer par:</h2>
-        <?php 
-        foreach ( $filters as $filter) : 
-          get_template_part( 'templates/content', 'jbati_filter', $filter );
-        endforeach
-        ?>
+        <h2 class="filters-title filters-title-accordion-button">Filtres</h2>
+        <div class="jbati-filters-wrapper">
+          <?php 
+          foreach ( $filters as $filter) : 
+            get_template_part( 'templates/content', 'jbati_filter', $filter );
+          endforeach
+          ?>
+        </div>
       </div>
     </div>
 

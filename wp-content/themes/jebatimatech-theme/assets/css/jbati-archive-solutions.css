@@ -8,6 +8,40 @@ body.archive div.site div.site-content,
 body.search div.site div.site-content {
   padding: 0px 60px 60px 60px;
 }
+.jabti-solutions-archive-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+@media (max-width: 1024px) {
+  body.archive div.site div.site-content,
+  body.search div.site div.site-content {
+    padding: 0px 30px 40px 30px;
+  }
+  .jabti-solutions-archive-grid {
+    grid-template-columns: 1fr;
+  }
+  div.site div.jbati-solutions-archive-sidebar {
+    margin-left: 14px;
+    width: 280px;
+  }
+}
+@media (max-width: 850px) {
+  body.archive div.site div.site-content,
+  body.search div.site div.site-content {
+    padding: 0px 10px 30px 10px;
+  }
+  div.site div.jbati-solutions-archive-sidebar {
+    margin-left: 14px;
+    width: 250px;
+  }
+}
+@media (max-width: 768px) {
+  body.archive div.site div.site-content,
+  body.search div.site div.site-content {
+    padding: 0px 5px 30px 5px;
+  }
+}
 /* Intro */
 .jbati-intro {
   width: 100vw;
@@ -105,10 +139,15 @@ body.search div.site div.site-content {
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
 }
 .filters-title {
-  margin: 20px 20px 0px 20px;
+  padding: 20px;
+  margin: 0;
+  border-radius: 15px;
 }
 .filter-title {
   font-size: 1.1rem;
+}
+.filter-items-wrapper:first-child {
+  padding-top: 0px;
 }
 .filter-item-wrapper {
   width: 100%;
@@ -121,6 +160,34 @@ body.search div.site div.site-content {
 }
 .filter-item-wrapper .label {
   width: 100%;
+}
+@media (max-width: 1024px) {
+  .jbati-filters-wrapper {
+    display: none;
+  }
+  .jbati-filters-wrapper.active {
+    display: block;
+  }
+  .filters-title-accordion-button {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .filters-title-accordion-button:hover {
+    background-color: var(--base-2);
+  }
+  .filters-title-accordion-button::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    transform: rotate(45deg);
+    margin-left: 10px;
+  }
 }
 
 /* Extra filter controls */
@@ -139,4 +206,15 @@ body.search div.site div.site-content {
 .jbati-flag-icon {
   font-size: 30px;
   margin-right: 10px;
+}
+
+@media (max-width: 1024px) {
+  .jbati-extra-filter-controls-wrapper {
+    margin-bottom: -60px;
+    justify-content: end;
+    gap: 15px;
+  }
+  .jbati-pill:not([data-filter-slug="clear-all"]) {
+    display: none;
+  }
 }

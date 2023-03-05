@@ -125,7 +125,7 @@ jQuery(document).ready(function( $ ) {
         }
       })
     })
-    
+
     // If active_filters_pills is not empty, add a clear all button at the beginning
     if (active_filters_pills.length > 0) {
       active_filters_pills.unshift(`<span class="jbati-pill" data-filter-slug="clear-all">Tout effacer</span>`)
@@ -146,6 +146,9 @@ jQuery(document).ready(function( $ ) {
    */
   $('.jbati-accordion-button').click( (event) => {
     $(event.target).parents('.jbati-accordion-item').toggleClass('active')
+  })
+  $('.filters-title-accordion-button').click( (event) => {
+    $(event.target).siblings('.jbati-filters-wrapper').toggleClass('active')
   })
 
   /**
