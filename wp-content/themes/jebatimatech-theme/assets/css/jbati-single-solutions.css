@@ -4,7 +4,7 @@
   margin: 30px 0px;
   padding: 40px;
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  border-radius: var(--border-radius);
 }
 .solution-section h3 {
   font-size: 1.3rem;
@@ -69,7 +69,7 @@ div:not(.boxes-list) li.term {
   background-color: var(--base-2);
   margin: -40px -40px -40px 0px;
   padding: 40px 40px 40px 20px;
-  border-radius: 0px 15px 15px 0px;
+  border-radius: 0px var(--border-radius) var(--border-radius) 0px;
 }
 
 /* Functionalities section */
