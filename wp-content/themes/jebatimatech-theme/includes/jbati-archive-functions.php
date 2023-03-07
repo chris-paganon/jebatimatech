@@ -251,9 +251,9 @@ function get_functionality_class($solution, $functionality_slug) {
 /**
  * Display a list of terms and the taxonomy label from a taxonomy slug and a postid
  */
-function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '') {
+function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '', $ignore_empty = false) {
   $terms = get_the_terms( $post_id, $taxonomy_slug );
-  if (empty($terms)) return;
+  if ($ignore_empty && empty($terms)) return;
   $taxonomy = get_taxonomy($taxonomy_slug);
 
   $terms_list = '<div class="jbati-taxonomy-content-wrapper ' . esc_attr($extra_classes) . '">';
@@ -270,13 +270,15 @@ function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '') {
 /**
  * Display a ACF field value and label from a field slug and a postid
  */
-function jbati_get_acf_field_value($field_slug, $post_id) {
+function jbati_get_acf_field_value($field_slug, $post_id, $ignore_empty = false) {
   $field = get_field_object($field_slug, $post_id);
   if (empty($field)) return;
 
   $label = $field['label'];
   $value = $field['value'];
   $percent_bar = '';
+
+  if ($ignore_empty && empty($value)) return;
 
   if ($field['type'] === 'number' && $field['append'] === '%') {
     ob_start(); ?>

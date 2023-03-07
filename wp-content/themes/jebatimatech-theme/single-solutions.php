@@ -37,6 +37,11 @@ get_header(); ?>
 				</div>
 				<div class="section-side-content">
 					<h4><?php esc_html_e('Options de tarifications dès:', 'jebatimatech'); ?></h4>
+					<?php echo jbati_get_acf_field_value('mode_de_tarification', get_the_ID(), true); ?>
+					<?php echo jbati_get_acf_field_value('modulation_tarification', get_the_ID(), true); ?>
+					<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID(), true); ?>
+					<?php echo jbati_get_terms_list('essais_gratuits', get_the_ID(), false); ?>
+					<?php echo jbati_get_terms_list('tarification_achat', get_the_ID(), true); ?>
 				</div>
 			</div>
 		</section>

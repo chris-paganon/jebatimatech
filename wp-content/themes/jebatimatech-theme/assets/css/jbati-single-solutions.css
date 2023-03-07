@@ -35,7 +35,7 @@
 
 .acf-value,
 div:not(.boxes-list) li.term {
-  color: var(--secondary);
+  color: var(--contrast-1);
 }
 
 /* header section */
