@@ -60,6 +60,18 @@ div:not(.boxes-list) li.term {
   margin: 20px 0px;
 }
 
+/* First section */
+.solution-content .section-main-content {
+  width: 64%;
+}
+.price-sub-section {
+  width: 36%;
+  background-color: var(--base-2);
+  margin: -40px -40px -40px 0px;
+  padding: 40px 40px 40px 20px;
+  border-radius: 0px 15px 15px 0px;
+}
+
 /* Functionalities section */
 .jbati-full-width {
   background-color: var(--base);

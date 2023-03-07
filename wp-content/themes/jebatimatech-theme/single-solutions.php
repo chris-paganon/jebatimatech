@@ -35,7 +35,7 @@ get_header(); ?>
 					</div>
 					<p><?php echo esc_html__('Sur le marché depuis:', 'jebatimatech') . ' '. get_field('existence_technologie'); ?></p>
 				</div>
-				<div class="section-side-content">
+				<div class="section-side-content price-sub-section">
 					<h4><?php esc_html_e('Options de tarifications dès:', 'jebatimatech'); ?></h4>
 					<?php echo jbati_get_acf_field_value('mode_de_tarification', get_the_ID(), true); ?>
 					<?php echo jbati_get_acf_field_value('modulation_tarification', get_the_ID(), true); ?>
