@@ -95,6 +95,12 @@ jQuery(document).ready(function( $ ) {
       })
       return solution
     })
+
+    if (! solutions.some(solution => solution.active === true)) {
+      $('.empty-solutions-message').addClass('active')
+    } else {
+      $('.empty-solutions-message').removeClass('active')
+    }
   }
   
   /**

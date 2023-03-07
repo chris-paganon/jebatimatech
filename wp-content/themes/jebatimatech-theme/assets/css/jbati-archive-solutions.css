@@ -60,6 +60,13 @@ body.search div.site div.site-content {
   padding: 0px 60px;
 }
 
+.empty-solutions-message {
+  display: none;
+}
+.empty-solutions-message.active {
+  display: block;
+}
+
 /* Archive Solutions */
 .solution-item-header {
   display: flex;

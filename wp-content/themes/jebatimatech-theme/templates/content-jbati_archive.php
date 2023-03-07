@@ -34,6 +34,10 @@ do_action( 'jbati_before_archive', $solutions, $filters );
     </div>
 
     <div class="jbati-solutions-archive-content content-area" id="primary">
+      <div class="empty-solutions-message">
+        <h2 class="empty-solutions-message-title">Aucune solution ne correspond à votre recherche</h2>
+        <p class="empty-solutions-message-text">Veuillez modifier vos filtres de recherche</p>
+      </div>
       <?php 
       foreach ( $solutions as $solution) : 
         get_template_part( 'templates/content', 'jbati_solutions', $solution );
