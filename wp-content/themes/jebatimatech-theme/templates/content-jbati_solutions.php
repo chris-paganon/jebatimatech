@@ -8,14 +8,14 @@
 }
 
 $categorie_technologie_value = '';
-$compagnie_value = '';
+$solution_link = '';
 foreach ($args['properties'] as $property) {
   switch ($property['slug']) {
     case 'categorie_technologie':
       $categorie_technologie_value = $property['values'][0]['label'];
       break;
-    case 'compagnie':
-      $compagnie_value = $property['values'][0]['label'];
+    case 'solution_link':
+      $solution_link = $property['values'][0]['label'];
       break;
   }
 }
@@ -32,7 +32,7 @@ foreach ($args['properties'] as $property) {
       </div>
       <div class="solution-item-header-link-wrapper">
         <div class="button button-primary">
-          <a target="_blank" href="<?php esc_attr_e($compagnie_value, 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
+          <a target="_blank" href="<?php esc_attr_e($solution_link, 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
         </div>
       </div>
     </div>

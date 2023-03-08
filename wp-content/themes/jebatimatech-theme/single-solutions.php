@@ -20,7 +20,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="button button-primary">
-				<a target="_blank" href="<?php esc_attr_e(the_field('compagnie'), 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
+				<a target="_blank" href="<?php esc_attr_e(the_field('solution_link'), 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
 			</div>
 		</section>
 
