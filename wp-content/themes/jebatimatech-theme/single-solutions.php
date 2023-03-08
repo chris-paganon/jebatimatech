@@ -50,13 +50,13 @@ get_header(); ?>
 			<h2><?php esc_html_e('Utilisateurs', 'jebatimatech'); ?></h2>
 			<div class="section-content">
 				<div class="section-main-content jbati-2-columns">
-					<?php echo jbati_get_terms_list('envergure_clientele_visee', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('taille_entreprise', get_the_ID()); ?>
 					<?php echo jbati_get_acf_field_value('moyenne_utilisateur_par_entreprise', get_the_ID()); ?>
-					<?php echo jbati_get_terms_list('categorie_de_clientele', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('type_utilisateurs', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('pour_departement', get_the_ID()); ?>
 				</div>
 				<div class="section-side-content">
-					<?php echo jbati_get_terms_list('disciplines_construction', get_the_ID(), 'boxes-list'); ?>
+					<?php echo jbati_get_terms_list('specialite', get_the_ID(), 'boxes-list'); ?>
 				</div>
 			</div>
 		</section>
@@ -66,7 +66,7 @@ get_header(); ?>
 			<div class="section-content">
 				<div class="section-side-content">
 					<?php echo jbati_get_terms_list('categorie_de_projet', get_the_ID()); ?>
-					<?php echo jbati_get_terms_list('envergure_de_projets', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('taille_entreprise', get_the_ID()); ?>
 				</div>
 				<div class="section-main-content">
 					<?php echo jbati_get_terms_list('phases_de_projet', get_the_ID(), 'boxes-list'); ?>
@@ -81,7 +81,7 @@ get_header(); ?>
 				<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID()); ?>
 				<?php echo jbati_get_terms_list('import_export', get_the_ID()); ?>
 				<?php echo jbati_get_acf_field_value('pourcent_quebecois_service', get_the_ID()); ?>
-				<?php echo jbati_get_acf_field_value('equipement_fonctionne_avec_logiciel', get_the_ID()); ?>
+				<?php echo jbati_get_acf_field_value('solution_complementaire', get_the_ID()); ?>
 			</div>
 		</section>
 
@@ -91,7 +91,7 @@ get_header(); ?>
 				<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
 			</div>
 			<ul class="theme-items">
-				<?php foreach( get_the_terms( get_the_ID(), 'themes' ) as $term ) : ?>
+				<?php foreach( get_the_terms( get_the_ID(), 'categories' ) as $term ) : ?>
         	<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
 				<?php endforeach; ?>
       </ul>
