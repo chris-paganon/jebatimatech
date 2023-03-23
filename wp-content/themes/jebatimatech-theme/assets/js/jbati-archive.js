@@ -67,7 +67,7 @@ jQuery(document).ready(function( $ ) {
   $('.jbati-active-filters-pills').on('click', '.jbati-pill[data-filter-slug="clear-all"]', (event) => {
     filters.forEach( filter => {
       filter.filter_items.forEach( filter_item => {
-        if (filter_item.active === true) {
+        if (filter_item.active === true && filter_item.slug != "canada") {
           filter_item.active = false
         }
       })
