@@ -12,16 +12,25 @@ get_header(); ?>
 <div <?php generate_do_attr( 'content' ); ?>>
 	<main <?php generate_do_attr( 'main' ); ?>>
 		<section class="solution-section solution-header">
-			<div class="solution-header-image-name-wrapper">
-				<?php the_post_thumbnail(); ?>
-				<div class="solution-header-name">
-					<h1><?php the_title(); ?></h1>
-					<h3><?php the_field('categorie_technologie'); ?></h3>
+			<div class="solution-header-top-wrapper">
+				<div class="solution-header-image-name-wrapper">
+					<?php the_post_thumbnail(); ?>
+					<div class="solution-header-name">
+						<h1><?php the_title(); ?></h1>
+						<h3><?php the_field('categorie_technologie'); ?></h3>
+					</div>
+				</div>
+				<div class="button button-primary">
+					<a target="_blank" href="<?php esc_attr_e(the_field('solution_link'), 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
 				</div>
 			</div>
-			<div class="button button-primary">
-				<a target="_blank" href="<?php esc_attr_e(the_field('solution_link'), 'jebatimatech'); ?>"><?php esc_html_e('Visiter le site web', 'jebatimatech'); ?></a>
-			</div>
+			<div class="solution-header-bottom-wrapper">
+				<ul>
+					<li><span class="checkmark <?php echo esc_attr(has_term('productivite', 'categories', get_the_ID()) ? 'active' : '') ?>">✓</span>Productivité</li>
+					<li><span class="checkmark <?php echo esc_attr(has_term('securite', 'categories', get_the_ID()) ? 'active' : '') ?>">✓</span>Sécurité</li>
+					<li><span class="checkmark <?php echo esc_attr(has_term('environnement', 'categories', get_the_ID()) ? 'active' : '') ?>">✓</span>Environnement</li>
+				</ul>
+			</div> 
 		</section>
 
 		<section class="solution-section solution-content has-side-content">
