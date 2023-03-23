@@ -1,4 +1,9 @@
 /* General */
+body,
+body.single-solutions div.site {
+  background-color: var(--base-2);
+}
+
 .solution-section {
   position: relative;
   margin: 30px 0px;
@@ -94,7 +99,8 @@ div:not(.boxes-list) li.term {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 80px;
+  column-gap: 40px;
+  row-gap: 15px;
 }
 
 /* Comment section */

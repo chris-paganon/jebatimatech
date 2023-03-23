@@ -91,7 +91,7 @@ get_header(); ?>
 				<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
 			</div>
 			<ul class="theme-items">
-				<?php foreach( get_the_terms( get_the_ID(), 'categories' ) as $term ) : ?>
+				<?php foreach( get_the_terms( get_the_ID(), 'fonctions_secondaires' ) as $term ) : ?>
         	<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
 				<?php endforeach; ?>
       </ul>
