@@ -137,7 +137,7 @@ input.star {
   display: none;
 }
 .star-rating-wrapper {
-  width: 190px;
+  width: fit-content;
 }
 label.star {
   float: right;
