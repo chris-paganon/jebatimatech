@@ -18,6 +18,12 @@ ul {
   margin: 0;
 }
 
+@media (max-width: 767px) {
+  div.site div.site-content {
+    padding: 30px;
+  }
+}
+
 /* Header */
 header.site-header {
   z-index: 10;

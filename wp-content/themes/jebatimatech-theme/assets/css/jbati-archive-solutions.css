@@ -36,7 +36,7 @@ body.search div.site div.site-content {
     width: 250px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body.archive div.site div.site-content,
   body.search div.site div.site-content {
     padding: 0px 5px 30px 5px;

@@ -50,15 +50,22 @@ div:not(.boxes-list) li.term {
 /* header section */
 .solution-header-top-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
   gap: 15px;
+}
+.solution-header h1,
+.solution-header h3 {
+  text-align: center;
 }
 .solution-header img {
   width: 150px;
 }
 .solution-header-image-name-wrapper {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 15px;
 }
@@ -73,7 +80,7 @@ div:not(.boxes-list) li.term {
 }
 .content-language {
   display: flex;
-  column-gap: 50px;
+  column-gap: 40px;
   margin-top: 20px;
 }
 
@@ -140,4 +147,30 @@ input.star:checked ~ label.star:before {
   content: '★';
   color: #FD4;
   transition: all .25s;
+}
+
+@media (max-width: 1024px) {
+  .content-language {
+    column-gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .solution-section {
+    padding: 30px;
+  }
+  .jbati-full-width {
+    margin: 30px -30px;
+  }
+  .solution-header-top-wrapper,
+  .solution-header-image-name-wrapper,
+  .solution-header-bottom-wrapper ul,
+  .content-language {
+    flex-direction: column;
+  }
+  .solution-header-bottom-wrapper ul {
+    align-items: center;
+    row-gap: 10px;
+  }
 }
