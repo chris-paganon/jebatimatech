@@ -30,6 +30,16 @@ div.top-bar {
   font-size: 17px;
 }
 
+/* Gravity forms */
+.gfield_checkbox {
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+div.ginput_container_checkbox ul.gfield_checkbox li label {
+  width: auto;
+}
+
 /* Accordion */
 .jbati-accordion-item:not(:last-child) {
   display: flex;
