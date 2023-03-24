@@ -145,6 +145,9 @@ body.search div.site div.site-content {
 }
 
 @media (max-width: 767px) {
+  .jbati-intro {
+    margin-bottom: 20px;
+  }
   .jbati-intro > * {
     padding: 0px 15px;
   }
@@ -267,5 +270,19 @@ body.search div.site div.site-content {
   }
   .jbati-pill:not([data-filter-slug="clear-all"]) {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .jbati-extra-filter-controls-wrapper {
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+  }
+  div.site div.jbati-solutions-archive-sidebar {
+    width: calc(100% - 30px);
+    margin: 0px 15px;
+  }
+  .filters-title {
+    font-size: 28px;
   }
 }
