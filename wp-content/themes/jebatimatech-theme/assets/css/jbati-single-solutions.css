@@ -180,3 +180,8 @@ input.star:checked ~ label.star:before {
     row-gap: 10px;
   }
 }
+@media (max-width: 450px) {
+  .solution-section {
+    margin: 15px 0px;
+  }
+}

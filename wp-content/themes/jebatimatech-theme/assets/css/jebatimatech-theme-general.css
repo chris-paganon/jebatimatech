@@ -18,9 +18,19 @@ ul {
   margin: 0;
 }
 
+@media (max-width: 1024px) {
+  div.site div.site-content {
+    padding: 45px;
+  }
+}
 @media (max-width: 767px) {
   div.site div.site-content {
-    padding: 30px;
+    padding: 25px;
+  }
+}
+@media (max-width: 450px) {
+  div.site div.site-content {
+    padding: 10px;
   }
 }
 
