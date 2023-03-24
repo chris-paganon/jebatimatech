@@ -36,7 +36,7 @@ do_action( 'jbati_before_archive', $solutions, $filters );
     <div class="jbati-solutions-archive-content content-area" id="primary">
       <div class="empty-solutions-message">
         <h2 class="empty-solutions-message-title">Aucune solution ne correspond à votre recherche</h2>
-        <p class="empty-solutions-message-text">Veuillez modifier vos filtres de recherche</p>
+        <p class="empty-solutions-message-text">Nous n'avons pas trouvé de résultats pour votre recherche actuelle. <strong>Veuillez modifier vos filtres de recherche ou vos termes de recherche</strong> pour trouver des solutions appropriées à vos besoins. N'hésitez pas à contacter un de nos experts pour obtenir de l'aide et des conseils supplémentaires au <a href="tel:5148401288">514-840-1288</a> ou nous écrire à <a href="mailto:recensement@batimatech.com">recensement@batimatech.com</a>.</p>
       </div>
       <?php 
       foreach ( $solutions as $solution) : 
