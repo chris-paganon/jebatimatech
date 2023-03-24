@@ -26,6 +26,10 @@ header.site-header {
 .navigation-search input[type="search"] {
   opacity: 1;
 }
+.mobile-menu-control-wrapper .menu-toggle,
+.has-inline-mobile-toggle #site-navigation.toggled {
+  background-color: transparent;
+}
 div.top-bar {
   font-size: 17px;
 }
