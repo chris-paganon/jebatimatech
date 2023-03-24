@@ -103,6 +103,13 @@ div.button a {
   border: none;
   border-bottom: 2px solid var(--contrast-3);
 }
+input.wp-block-search__input,
+.navigation-search input.search-field {
+  border-radius: 999px;
+}
+.navigation-search input.search-field {
+  background-color: var(--v-light-blue);
+}
 
 /* Percent bar */
 .acf-percent-wrapper {
