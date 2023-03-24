@@ -63,12 +63,12 @@ get_header(); ?>
 			<h2><?php esc_html_e('Utilisateurs', 'jebatimatech'); ?></h2>
 			<div class="section-content jbati-3-columns">
 				<div class="jbati-col">
-					<?php echo jbati_get_terms_list('taille_entreprise', get_the_ID()); ?>
-					<?php echo jbati_get_terms_list('type_utilisateurs', get_the_ID()); ?>
-				</div>
-				<div class="jbati-col">
 					<?php echo jbati_get_acf_field_value('moyenne_utilisateur_par_entreprise', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('pour_departement', get_the_ID()); ?>
+				</div>
+				<div class="jbati-col">
+					<?php echo jbati_get_terms_list('taille_entreprise', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('type_utilisateurs', get_the_ID()); ?>
 				</div>
 				<div class="jbati-col">
 					<?php echo jbati_get_terms_list('specialite', get_the_ID(), 'boxes-list'); ?>
