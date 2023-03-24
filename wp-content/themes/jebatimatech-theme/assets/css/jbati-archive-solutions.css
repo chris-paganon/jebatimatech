@@ -59,6 +59,9 @@ body.search div.site div.site-content {
   margin: 0px auto;
   padding: 0px 60px;
 }
+.jbati-intro h1 {
+  margin-bottom: 20px;
+}
 
 .empty-solutions-message {
   display: none;
@@ -142,6 +145,9 @@ body.search div.site div.site-content {
 }
 
 @media (max-width: 767px) {
+  .jbati-intro > * {
+    padding: 0px 15px;
+  }
   .jbati-solution {
     margin: 0px 5px 25px 5px;
   }
@@ -168,8 +174,6 @@ body.search div.site div.site-content {
 .inside-left-sidebar {
   background-color: white;
   border-radius: var(--border-radius);
-  overflow-y: scroll;
-  max-height: calc(100vh - 80px);
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
 }
 .inside-left-sidebar,
@@ -178,15 +182,12 @@ body.search div.site div.site-content {
   top: 40px;
   z-index: 50;
 }
-.inside-left-sidebar::-webkit-scrollbar {
+.jbati-filters-wrapper {
+  overflow-y: scroll;
+  max-height: calc(100vh - 150px);
+}
+.jbati-filters-wrapper::-webkit-scrollbar {
   width: 0px;
-}
-.inside-left-sidebar::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 5px;
-}
-.inside-left-sidebar::-webkit-scrollbar-track {
-  background: transparent;
 }
 .filters-title {
   padding: 20px;
