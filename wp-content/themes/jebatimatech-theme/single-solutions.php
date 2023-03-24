@@ -100,15 +100,9 @@ get_header(); ?>
 				<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
 			</div>
 			<ul class="theme-items">
-				<?php if (get_field('categorie_technologie') === '(E) Équipement') : ?>
-					<?php foreach( get_the_terms( get_the_ID(), 'fonctions_secondaires' ) as $term ) : ?>
-						<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
-					<?php endforeach; ?>
-				<?php else : ?>
-						<?php foreach( get_terms( ['taxonomy' => 'fonctions_secondaires', 'hide_empty' => true] ) as $term ) : ?>
-							<li><span class="checkmark <?php echo esc_attr(has_term($term->slug, 'fonctions_secondaires', get_the_ID()) ? 'active' : '') ?>">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
-						<?php endforeach; ?>
-				<?php endif; ?>
+				<?php foreach( get_the_terms( get_the_ID(), 'fonctions_secondaires' ) as $term ) : ?>
+        	<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
+				<?php endforeach; ?>
       </ul>
 		</section>
 
