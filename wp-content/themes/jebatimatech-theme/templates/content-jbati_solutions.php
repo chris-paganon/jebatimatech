@@ -28,7 +28,9 @@ foreach ($args['properties'] as $property) {
         <div class="entry-thumbnail">
           <?php echo get_the_post_thumbnail($args['id']); ?>
         </div>
-        <h3><?php esc_html_e($args['title'], 'jebatimatech'); ?></h3>
+        <a href="<?php echo esc_attr($args['link']); ?>">
+          <h3><?php esc_html_e($args['title'], 'jebatimatech'); ?></h3>
+        </a>
       </div>
       <div class="solution-item-header-link-wrapper">
         <div class="button button-primary">
