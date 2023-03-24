@@ -45,6 +45,18 @@ get_header(); ?>
 			</div>
 		</section>
 
+		<section class="solution-section solution-functionalities">
+			<h2><?php esc_html_e('Fonctionalités', 'jebatimatech'); ?></h2>
+			<div class="jbati-full-width">
+				<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
+			</div>
+			<ul class="theme-items">
+				<?php foreach( get_the_terms( get_the_ID(), 'fonctions_secondaires' ) as $term ) : ?>
+        	<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
+				<?php endforeach; ?>
+      </ul>
+		</section>
+		
 		<section class="solution-section solution-users">
 			<h2><?php esc_html_e('Utilisateurs', 'jebatimatech'); ?></h2>
 			<div class="section-content">
@@ -92,18 +104,6 @@ get_header(); ?>
 				<?php echo jbati_get_terms_list('essais_gratuits', get_the_ID(), '', true); ?>
 				<?php echo jbati_get_terms_list('tarification_achat', get_the_ID(), '', true); ?>
 			</div>
-		</section>
-
-		<section class="solution-section solution-functionalities">
-			<h2><?php esc_html_e('Fonctionalités', 'jebatimatech'); ?></h2>
-			<div class="jbati-full-width">
-				<?php echo jbati_get_acf_field_value('fonction_principale', get_the_ID()); ?>
-			</div>
-			<ul class="theme-items">
-				<?php foreach( get_the_terms( get_the_ID(), 'fonctions_secondaires' ) as $term ) : ?>
-        	<li><span class="checkmark active">✓</span><?php esc_html_e($term->name, 'jebatimatech'); ?></li>
-				<?php endforeach; ?>
-      </ul>
 		</section>
 
 		<section class="solution-section solution-comments">
