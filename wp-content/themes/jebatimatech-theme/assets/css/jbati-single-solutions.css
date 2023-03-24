@@ -111,6 +111,7 @@ div:not(.boxes-list) li.term {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 25px;
+  margin-bottom: 0px;
 }
 .jbati-full-width .jbati-acf-content-wrapper > * {
   font-size: 23px;
