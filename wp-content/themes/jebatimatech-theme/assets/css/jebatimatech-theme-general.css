@@ -26,6 +26,9 @@ header.site-header {
 .navigation-search input[type="search"] {
   opacity: 1;
 }
+div.top-bar {
+  font-size: 17px;
+}
 
 /* Accordion */
 .jbati-accordion-item:not(:last-child) {
