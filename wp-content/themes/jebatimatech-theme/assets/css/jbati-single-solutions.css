@@ -39,6 +39,9 @@ body.single-solutions div.site {
   gap: 15px;
 }
 
+.jbati-taxonomy-content-wrapper {
+  margin-bottom: 20px;
+}
 .acf-value,
 div:not(.boxes-list) li.term {
   color: var(--contrast-1);
@@ -71,7 +74,7 @@ div:not(.boxes-list) li.term {
 .content-language {
   display: flex;
   column-gap: 50px;
-  margin: 20px 0px;
+  margin-top: 20px;
 }
 
 /* First section */

@@ -34,14 +34,14 @@ get_header(); ?>
 		</section>
 
 		<section class="solution-section solution-content has-side-content">
+			<h2><?php esc_html_e('En savoir plus', 'jebatimatech'); ?></h2>
 			<div class="section-content-vertical">
-				<h3><?php esc_html_e('EN SAVOIR PLUS', 'jebatimatech'); ?></h3>
 				<?php the_content(); ?>
 				<div class="content-language">
 					<?php echo jbati_get_terms_list('pays_origine', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('langue_du_service', get_the_ID()); ?>
+					<?php echo jbati_get_acf_field_value('existence_technologie', get_the_ID()); ?>
 				</div>
-				<p><?php echo esc_html__('Sur le marché depuis:', 'jebatimatech') . ' '. get_field('existence_technologie'); ?></p>
 			</div>
 		</section>
 
@@ -89,9 +89,9 @@ get_header(); ?>
 			<div class="section-content jbati-3-columns">
 				<?php echo jbati_get_acf_field_value('mode_de_tarification', get_the_ID(), true); ?>
 				<?php echo jbati_get_acf_field_value('modulation_tarification', get_the_ID(), true); ?>
-				<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID(), true); ?>
-				<?php echo jbati_get_terms_list('essais_gratuits', get_the_ID(), false); ?>
-				<?php echo jbati_get_terms_list('tarification_achat', get_the_ID(), true); ?>
+				<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID(), '', true); ?>
+				<?php echo jbati_get_terms_list('essais_gratuits', get_the_ID(), '', true); ?>
+				<?php echo jbati_get_terms_list('tarification_achat', get_the_ID(), '', true); ?>
 			</div>
 		</section>
 
