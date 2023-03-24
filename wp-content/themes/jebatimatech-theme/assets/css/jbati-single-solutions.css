@@ -30,7 +30,7 @@ body.single-solutions div.site {
 }
 .jbati-3-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
 }
 .jbati-2-columns {
@@ -39,8 +39,12 @@ body.single-solutions div.site {
   gap: 15px;
 }
 
-.jbati-taxonomy-content-wrapper {
+.jbati-taxonomy-content-wrapper,
+.jbati-acf-content-wrapper {
   margin-bottom: 20px;
+}
+.jbati-acf-content-wrapper .acf-value {
+  margin-bottom: 0px;
 }
 .acf-value,
 div:not(.boxes-list) li.term {
@@ -105,6 +109,7 @@ div:not(.boxes-list) li.term {
 .jbati-full-width .jbati-acf-content-wrapper {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 25px;
 }
 .jbati-full-width .jbati-acf-content-wrapper > * {

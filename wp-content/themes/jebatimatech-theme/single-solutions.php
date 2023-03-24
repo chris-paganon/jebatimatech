@@ -59,14 +59,16 @@ get_header(); ?>
 		
 		<section class="solution-section solution-users">
 			<h2><?php esc_html_e('Utilisateurs', 'jebatimatech'); ?></h2>
-			<div class="section-content">
-				<div class="section-main-content jbati-2-columns">
+			<div class="section-content jbati-3-columns">
+				<div class="jbati-col">
 					<?php echo jbati_get_terms_list('taille_entreprise', get_the_ID()); ?>
-					<?php echo jbati_get_acf_field_value('moyenne_utilisateur_par_entreprise', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('type_utilisateurs', get_the_ID()); ?>
+				</div>
+				<div class="jbati-col">
+					<?php echo jbati_get_acf_field_value('moyenne_utilisateur_par_entreprise', get_the_ID()); ?>
 					<?php echo jbati_get_terms_list('pour_departement', get_the_ID()); ?>
 				</div>
-				<div class="section-side-content">
+				<div class="jbati-col">
 					<?php echo jbati_get_terms_list('specialite', get_the_ID(), 'boxes-list'); ?>
 				</div>
 			</div>
@@ -74,25 +76,27 @@ get_header(); ?>
 
 		<section class="solution-section solution-projects">
 			<h2><?php esc_html_e('Projets', 'jebatimatech'); ?></h2>
-			<div class="section-content">
-				<div class="section-side-content">
-					<?php echo jbati_get_terms_list('categorie_de_projet', get_the_ID()); ?>
-					<?php echo jbati_get_terms_list('taille_projet', get_the_ID()); ?>
-				</div>
-				<div class="section-main-content">
-					<?php echo jbati_get_terms_list('phases_de_projet', get_the_ID(), 'boxes-list'); ?>
-				</div>
+			<div class="section-content jbati-3-columns">
+				<?php echo jbati_get_terms_list('phases_de_projet', get_the_ID(), 'boxes-list'); ?>
+				<?php echo jbati_get_terms_list('categorie_de_projet', get_the_ID()); ?>
+				<?php echo jbati_get_terms_list('taille_projet', get_the_ID()); ?>
 			</div>
 		</section>
 
 		<section class="solution-section solution-specifications">
 			<h2><?php esc_html_e('Sécifications', 'jebatimatech'); ?></h2>
 			<div class="section-content jbati-3-columns">
-				<?php echo jbati_get_acf_field_value('pourcent_quebecois', get_the_ID()); ?>
-				<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID()); ?>
-				<?php echo jbati_get_terms_list('import_export', get_the_ID()); ?>
-				<?php echo jbati_get_acf_field_value('pourcent_quebecois_service', get_the_ID()); ?>
-				<?php echo jbati_get_acf_field_value('solution_complementaire', get_the_ID()); ?>
+				<div class="jbati-col">
+					<?php echo jbati_get_acf_field_value('pourcent_quebecois', get_the_ID()); ?>
+					<?php echo jbati_get_acf_field_value('pourcent_quebecois_service', get_the_ID()); ?>
+				</div>
+				<div class="jbati-col">
+					<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID()); ?>
+					<?php echo jbati_get_acf_field_value('solution_complementaire', get_the_ID()); ?>
+				</div>
+				<div class="jbati-col">
+					<?php echo jbati_get_terms_list('import_export', get_the_ID()); ?>
+				</div>
 			</div>
 		</section>
 
