@@ -286,7 +286,7 @@ function jbati_get_acf_field_value($field_slug, $post_id, $ignore_empty = false)
   if ($field['type'] === 'number' && $field['append'] === '%') {
     ob_start(); ?>
     <div class="acf-percent-outer-bar">
-      <div class="acf-percent-bar" style="width:<? echo $value; ?>%"></div>
+      <div class="acf-percent-bar" style="width:<?php echo $value; ?>%"></div>
     </div>
     <?php
     $percent_bar = ob_get_clean();
