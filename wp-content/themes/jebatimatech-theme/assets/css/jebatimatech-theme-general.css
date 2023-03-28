@@ -59,6 +59,9 @@ div.top-bar {
 div.ginput_container_checkbox ul.gfield_checkbox li label {
   width: auto;
 }
+.gform_button {
+  border-radius: 999px;
+}
 
 /* Accordion */
 .jbati-accordion-item:not(:last-child) {
