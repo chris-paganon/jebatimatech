@@ -133,22 +133,8 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
-      'label' => 'Taille d\'entreprise',
-      'slug' => 'taille_entreprise',
-      'type' => 'taxonomy',
-      'show_title' => true,
-      'filter_items' => []
-    ],
-    [
       'label' => 'Spécialités',
       'slug' => 'specialite',
-      'type' => 'taxonomy',
-      'show_title' => true,
-      'filter_items' => []
-    ],
-    [
-      'label' => 'Langue d\'interface',
-      'slug' => 'langue_de_travail',
       'type' => 'taxonomy',
       'show_title' => true,
       'filter_items' => []
