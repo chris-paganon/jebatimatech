@@ -114,6 +114,18 @@ get_header(); ?>
 			</div>
 		</section>
 
+		<section class="solution-section solution-pricing">
+			<h2><?php esc_html_e('Vous souhaitez faire une autre recherche?', 'jebatimatech'); ?></h2>
+			<div class="section-content-vertical">
+				<p><?php esc_html_e("Si vous souhaitez explorer d'autres options, effectuez une nouvelle recherche:", 'jebatimatech'); ?></p>
+				<div class="button button-primary">
+					<a href="<?php echo get_post_type_archive_link('solutions'); ?>">
+						<?php esc_html_e('Rechercher une autre solution', 'jebatimatech'); ?>
+					</a>
+				</div>
+			</div>
+		</section>
+
 		<section class="solution-section solution-comments">
 			<h2><?php esc_html_e('Commentaires', 'jebatimatech'); ?></h2>
 			<?php comment_form([
