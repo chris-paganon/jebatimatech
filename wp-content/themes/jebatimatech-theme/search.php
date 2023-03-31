@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <div class="jbati-intro">
-  <h1>Recherche: <?php print_r(get_search_query()); ?></h1>
+  <h1>Recherche: <?php echo esc_html(get_search_query()); ?></h1>
 </div>
 
 <?php
