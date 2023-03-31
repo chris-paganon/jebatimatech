@@ -139,7 +139,7 @@ jQuery(document).ready(function( $ ) {
       active_filters_pills.unshift(`<span class="jbati-pill" data-filter-slug="clear-all">Tout effacer</span>`)
     }
 
-    $('.jbati-active-filters-pills').html(active_filters_pills.flat().join(''))
+    $('.jbati-active-filters-js-pills').html(active_filters_pills.flat().join(''))
   }
 
   /**

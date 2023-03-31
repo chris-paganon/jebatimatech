@@ -17,7 +17,12 @@ do_action( 'jbati_before_archive', $solutions, $filters );
 
 <main class="site-main" id="main">
   <div class="jbati-extra-filter-controls-wrapper">
-    <div class="jbati-active-filters-pills"></div>
+    <div class="jbati-active-filters-pills">
+      <?php if (is_search()) : ?>
+        <a href="<?php echo get_post_type_archive_link('solutions'); ?>"><span class="jbati-pill"><?php esc_html_e(get_search_query()); ?></span></a>
+      <?php endif ?>
+      <span class="jbati-active-filters-js-pills"></span>
+    </div>
     <?php get_template_part( 'templates/component', 'ca_switch', [] ); ?>
   </div>
 
