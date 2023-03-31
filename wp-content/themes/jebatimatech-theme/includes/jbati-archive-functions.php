@@ -241,6 +241,7 @@ function jbati_get_terms_list($taxonomy_slug, $post_id, $extra_classes = '', $ig
   $terms = get_the_terms( $post_id, $taxonomy_slug );
   if ($ignore_empty && empty($terms)) return;
   $taxonomy = get_taxonomy($taxonomy_slug);
+  if (empty($taxonomy)) return;
 
   $terms_list = '<div class="jbati-taxonomy-content-wrapper ' . esc_attr($extra_classes) . '">';
   $terms_list .= '<h3 class="taxonomy-label">' . esc_html__($taxonomy->label, 'jebatimatech') . '</h3>';
