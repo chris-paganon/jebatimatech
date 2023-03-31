@@ -91,6 +91,7 @@ get_header(); ?>
 				<div class="jbati-col">
 					<?php echo jbati_get_acf_field_value('pourcent_quebecois', get_the_ID()); ?>
 					<?php echo jbati_get_acf_field_value('pourcent_quebecois_service', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('solutions_numeriques', get_the_ID()); ?>
 				</div>
 				<div class="jbati-col">
 					<?php echo jbati_get_terms_list('delais_demarrage', get_the_ID()); ?>
@@ -98,6 +99,7 @@ get_header(); ?>
 				</div>
 				<div class="jbati-col">
 					<?php echo jbati_get_terms_list('import_export', get_the_ID()); ?>
+					<?php echo jbati_get_terms_list('collaboration_api', get_the_ID()); ?>
 				</div>
 			</div>
 		</section>
