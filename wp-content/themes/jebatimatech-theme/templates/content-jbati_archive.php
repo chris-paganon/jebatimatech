@@ -8,6 +8,8 @@
 }
 
 global $wp_query;
+$wp_query->set( 'orderby', 'title' );
+$wp_query->set( 'order', 'ASC' );
 $solutions = apply_filters( 'jbati_solutions_array', $wp_query->get_posts() );
 $filters = apply_filters( 'jbati_filters_array', array(), $solutions );
 do_action( 'jbati_before_archive', $solutions, $filters );
