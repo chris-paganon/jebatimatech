@@ -11,8 +11,12 @@ get_header();
 ?>
 
 <div class="jbati-intro">
-  <h1>Logiciels et équipements pour la construction</h1>
-  <p>Parcourez notre lexique dès maintenant pour découvrir des termes clés et des définitions utiles ! Enrichissez votre vocabulaire technologique et trouvez les solutions qui répondent à vos besoins.</p>
+  <h1>Pour obtenir des suggestions et des résultats de recherche</h1>
+  <p>Sélectionnez à gauche des critères de recherche qui correspondent à votre profil.</p>
+  <br>
+  <p>Ils vous permettront de trouver et filtrer différentes technologies disponibles pour vous. Plus vous en sélectionnerez, plus les technologies trouvées ou suggérées seront précises et restraintes.</p>
+  <br>
+  <p>Si des critères disparaissent dans les filtres, cela indique qu'aucune technologie trouvée ou suggérée ne correspondent à ces critères.</p>
 </div>
 
 <?php
