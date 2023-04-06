@@ -11,12 +11,8 @@ get_header();
 ?>
 
 <div class="jbati-intro">
-  <h1>Pour obtenir des suggestions et des résultats de recherche</h1>
-  <p>Sélectionnez à gauche des critères de recherche qui correspondent à votre profil.</p>
-  <br>
-  <p>Ils vous permettront de trouver et filtrer différentes technologies disponibles pour vous. Plus vous en sélectionnerez, plus les technologies trouvées ou suggérées seront précises et restraintes.</p>
-  <br>
-  <p>Si des critères disparaissent dans les filtres, cela indique qu'aucune technologie trouvée ou suggérée ne correspondent à ces critères.</p>
+  <h1><?php echo esc_html(get_option( 'jbati_archive_intro_title' )); ?></h1>
+  <p><?php echo get_option( 'jbati_archive_intro_text' ); ?></p>
 </div>
 
 <?php
