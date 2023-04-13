@@ -194,6 +194,9 @@ div.boxes-list li {
   margin-left: 10px;
   cursor: pointer;
 }
+.jbati-pill[data-filter-slug="clear-all"] {
+  color: var(--accent);
+}
 
 /* Switch */
 .jbati-switch-wrapper {
