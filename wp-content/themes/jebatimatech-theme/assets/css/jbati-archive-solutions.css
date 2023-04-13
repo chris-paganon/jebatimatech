@@ -183,7 +183,7 @@ body.search div.site div.site-content {
 .inside-left-sidebar,
 .jbati-solutions-archive-sidebar {
   position: sticky;
-  top: 40px;
+  top: 120px;
   z-index: 50;
 }
 .jbati-filters-wrapper {
@@ -245,6 +245,12 @@ body.search div.site div.site-content {
   }
 }
 
+@media (max-width: 767px) {
+  .inside-left-sidebar,
+  .jbati-solutions-archive-sidebar {
+    top: 75px;
+  }
+}
 /* Extra filter controls */
 .jbati-extra-filter-controls-wrapper {
   display: flex;

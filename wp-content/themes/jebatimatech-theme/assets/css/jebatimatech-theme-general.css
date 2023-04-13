@@ -38,6 +38,8 @@ ul {
 header.site-header {
   z-index: 10;
   box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
 }
 .inside-header {
   padding: 10px 40px;
