@@ -126,6 +126,13 @@ function jbati_get_all_filters_data( $filters, $solutions ) {
       'filter_items' => []
     ],
     [
+      'label' => 'Langue',
+      'slug' => 'langue_de_travail',
+      'type' => 'taxonomy',
+      'show_title' => true,
+      'filter_items' => []
+    ],
+    [
       'label' => 'Type d\'utilisateur',
       'slug' => 'type_utilisateurs',
       'type' => 'taxonomy',
