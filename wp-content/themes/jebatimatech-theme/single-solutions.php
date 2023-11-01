@@ -86,7 +86,7 @@ get_header(); ?>
 		</section>
 
 		<section class="solution-section solution-specifications">
-			<h2><?php esc_html_e('Sécifications', 'jebatimatech'); ?></h2>
+			<h2><?php esc_html_e('Spécifications', 'jebatimatech'); ?></h2>
 			<div class="section-content jbati-3-columns">
 				<div class="jbati-col">
 					<?php echo jbati_get_acf_field_value('pourcent_quebecois', get_the_ID()); ?>
